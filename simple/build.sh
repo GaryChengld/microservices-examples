@@ -1,0 +1,1 @@
+docker build -t service-discovery-simple/service -f service/Dockerfile service/
