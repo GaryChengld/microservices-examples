@@ -1,4 +1,4 @@
-# This is the Service Discovery example implemented by Vert.x provided library
+## This is the Service Discovery example implemented by Vert.x provided library
 
 ### Build
 

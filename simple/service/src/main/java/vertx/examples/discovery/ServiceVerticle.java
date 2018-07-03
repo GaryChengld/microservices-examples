@@ -56,11 +56,11 @@ public class ServiceVerticle extends AbstractVerticle {
     }
 
     @Override
-    public void stop() {
+    public void stop(Future<Void> stopFuture) {
         if (null != this.publishedRecord) {
             discovery.rxUnpublish(this.publishedRecord.getRegistration())
-                    .doOnComplete(() -> this.publishedRecord = null)
-                    .subscribe(() -> logger.debug("Service unPublished"));
+                    .doOnComplete(() -> logger.debug("Service unPublished"))
+                    .subscribe(stopFuture::complete);
         }
     }
 
