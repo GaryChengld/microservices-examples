@@ -1,9 +1,0 @@
-{
-  "host": "localhost",
-  "port": 8083,
-  "ServiceName": "MyService",
-  "consul" : {
-    "host": "localhost",
-    "port": 8500
-  }
-}

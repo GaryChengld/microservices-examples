@@ -18,7 +18,7 @@ If docker is running on Linux, change host to 127.0.0.1 in service\src\conf\dock
 
 #### run Service locally
 ```
-java -jar service\target\simple-discovery-service-0.1.0-SNAPSHOT-fat.jar --cluster -conf service\src\conf\local.json
+java -jar service\target\vertx-core-discovery-service-fat.jar.jar --cluster -conf service\src\conf\local.json
 ```
 
 #### Run service in docker container

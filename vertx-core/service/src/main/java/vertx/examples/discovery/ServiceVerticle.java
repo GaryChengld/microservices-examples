@@ -17,6 +17,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * The Service verticle on HTTP server
+ * This service is using Vert.x provided ServiceDiscovery to register service,
+ * it has to be executed under clustered mode
  *
  * @author Gary Cheng
  */

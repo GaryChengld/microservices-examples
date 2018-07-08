@@ -1,6 +1,6 @@
 FROM java:8-jre
 
-ENV SERVICE_APP_FILE target/simple-discovery-service-0.1.0-SNAPSHOT-fat.jar
+ENV SERVICE_APP_FILE target/vertx-core-discovery-service-fat.jar.jar
 
 # Set the location of the services
 ENV SERVICE_HOME /opt/services
@@ -13,4 +13,4 @@ COPY src/conf/docker.json $SERVICE_HOME/
 
 WORKDIR $SERVICE_HOME
 ENTRYPOINT ["sh", "-c"]
-CMD ["java -jar simple-discovery-service-0.1.0-SNAPSHOT-fat.jar -cluster -conf docker.json"]
+CMD ["java -jar vertx-core-discovery-service-fat.jar -cluster -conf docker.json"]
