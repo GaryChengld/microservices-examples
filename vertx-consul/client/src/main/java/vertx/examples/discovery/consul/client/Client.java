@@ -8,24 +8,27 @@ import org.slf4j.Logger;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
+/**
+ * The client class which find service from consul and call the service
+ *
+ * @author Gary Cheng
+ */
 public class Client {
     private static final Logger logger = getLogger(Client.class);
     private static final String SERVICE_NAME = "MyService";
-
-    private Vertx vertx;
-    private ConsulClient consulClient;
 
     public static void main(String[] args) {
         new Client().start();
     }
 
     private void start() {
-        this.vertx = Vertx.vertx();
-        this.consulClient = ConsulClient.create(this.vertx);
-        vertx.setPeriodic(3000, id -> this.findService().subscribe(this::sendRequest, ex -> logger.error(ex.getMessage())));
+        Vertx vertx = Vertx.vertx();
+        ConsulClient consulClient = ConsulClient.create(vertx);
+        vertx.setPeriodic(3000, id -> this.findService(consulClient)
+                .subscribe(service -> this.sendRequest(vertx, service), ex -> logger.error(ex.getMessage())));
     }
 
-    private Single<Service> findService() {
+    private Single<Service> findService(ConsulClient consulClient) {
         return Single.create(emitter ->
                 consulClient.rxCatalogServiceNodes(SERVICE_NAME)
                         .subscribe(serviceList -> {
@@ -37,7 +40,7 @@ public class Client {
                         }, emitter::onError));
     }
 
-    private void sendRequest(Service service) {
+    private void sendRequest(Vertx vertx, Service service) {
         vertx.createHttpClient().getNow(service.getPort(), service.getAddress(), "/", resp -> {
             logger.debug("Got service response {}", resp.statusCode());
             resp.bodyHandler(body -> logger.debug("body:{}", body.toString()));

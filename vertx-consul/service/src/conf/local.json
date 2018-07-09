@@ -1,9 +1,12 @@
 {
-  "host": "localhost",
-  "port": 8083,
-  "ServiceName": "MyService",
-  "consul" : {
-    "host": "localhost",
+  "service": {
+    "name": "MyService",
+    "host": "127.0.0.1",
+    "port": 8081,
+    "healthCheck": "/healthCheck"
+  },
+  "consul": {
+    "host": "127.0.0.1",
     "port": 8500
   }
 }
