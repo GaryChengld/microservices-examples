@@ -9,28 +9,16 @@
     <artifactId>service-discovery-vertx-core</artifactId>
     <version>0.1.0-SNAPSHOT</version>
   </parent>
+  <artifactId>vertx-core-discovery-service</artifactId>
 
   <properties>
     <main.verticle>vertx.examples.discovery.ServiceVerticle</main.verticle>
   </properties>
 
-  <artifactId>vertx-core-discovery-service</artifactId>
-
   <build>
     <plugins>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <artifactId>maven-dependency-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>8</source>
-          <target>8</target>
-        </configuration>
       </plugin>
     </plugins>
   </build>

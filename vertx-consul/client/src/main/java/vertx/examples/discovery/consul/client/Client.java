@@ -2,6 +2,7 @@ package vertx.examples.discovery.consul.client;
 
 import io.reactivex.Single;
 import io.vertx.ext.consul.Service;
+import io.vertx.ext.consul.ServiceEntry;
 import io.vertx.reactivex.core.Vertx;
 import io.vertx.reactivex.ext.consul.ConsulClient;
 import org.slf4j.Logger;
@@ -25,23 +26,23 @@ public class Client {
         Vertx vertx = Vertx.vertx();
         ConsulClient consulClient = ConsulClient.create(vertx);
         vertx.setPeriodic(3000, id -> this.findService(consulClient)
-                .subscribe(service -> this.sendRequest(vertx, service), ex -> logger.error(ex.getMessage())));
+                .subscribe(entry -> this.sendRequest(vertx, entry), ex -> logger.error(ex.getMessage())));
     }
 
-    private Single<Service> findService(ConsulClient consulClient) {
+    private Single<ServiceEntry> findService(ConsulClient consulClient) {
         return Single.create(emitter ->
-                consulClient.rxCatalogServiceNodes(SERVICE_NAME)
-                        .subscribe(serviceList -> {
-                            if (!serviceList.getList().isEmpty()) {
-                                emitter.onSuccess(serviceList.getList().get(0));
+                consulClient.rxHealthServiceNodes(SERVICE_NAME, true)
+                        .subscribe(entryList -> {
+                            if (!entryList.getList().isEmpty()) {
+                                emitter.onSuccess(entryList.getList().get(0));
                             } else {
                                 emitter.onError(new RuntimeException("Service not found"));
                             }
                         }, emitter::onError));
     }
 
-    private void sendRequest(Vertx vertx, Service service) {
-        vertx.createHttpClient().getNow(service.getPort(), service.getAddress(), "/", resp -> {
+    private void sendRequest(Vertx vertx, ServiceEntry entry) {
+        vertx.createHttpClient().getNow(entry.getService().getPort(), entry.getService().getAddress(), "/", resp -> {
             logger.debug("Got service response {}", resp.statusCode());
             resp.bodyHandler(body -> logger.debug("body:{}", body.toString()));
         });
