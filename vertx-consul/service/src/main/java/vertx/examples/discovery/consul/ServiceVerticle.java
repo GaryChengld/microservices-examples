@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
+import java.util.UUID;
 
 /**
  * The Service verticle on HTTP server and registered on consul server
@@ -83,8 +84,9 @@ public class ServiceVerticle extends AbstractVerticle {
 
     private Completable registerService(String name, String host, Integer port, String healthCheck) {
         logger.debug("Register service");
+        String serviceId = UUID.randomUUID().toString();
         ServiceOptions options = new ServiceOptions().setName(name)
-                .setId(name)
+                .setId(serviceId)
                 .setTags(Arrays.asList("http-endpoint"))
                 .setAddress(host)
                 .setPort(port)
@@ -93,7 +95,7 @@ public class ServiceVerticle extends AbstractVerticle {
                         .setInterval("30s")
                         .setDeregisterAfter("30m"));
         return this.consulClient.rxRegisterService(options)
-                .doOnComplete(() -> this.registeredServiceId = name);
+                .doOnComplete(() -> this.registeredServiceId = serviceId);
     }
 
     private void serviceHandler(RoutingContext context) {

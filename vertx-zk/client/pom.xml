@@ -13,7 +13,7 @@
   <artifactId>vertx-zk-discovery-client</artifactId>
 
   <properties>
-    <main.class>examples.discovery.vertx.zk.client.Client</main.class>
+    <main.verticle>examples.discovery.vertx.zk.ClientVerticle</main.verticle>
   </properties>
 
   <build>

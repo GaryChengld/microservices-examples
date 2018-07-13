@@ -26,6 +26,7 @@ public class ServiceVerticle extends AbstractVerticle {
     private static final Logger logger = LoggerFactory.getLogger(ServiceVerticle.class);
     private static final int SC_SERVICE_UNAVAILABLE = 503;
     private static final String KEY_SERVICE = "service";
+    private static final String KEY_ZOOKEEPER = "zookeeper";
     private static final String KEY_NAME = "name";
     private static final String KEY_HOST = "host";
     private static final String KEY_PORT = "port";
@@ -41,7 +42,7 @@ public class ServiceVerticle extends AbstractVerticle {
         String serviceHost = serviceConfig.getString(KEY_HOST, "localhost");
         Integer servicePort = serviceConfig.getInteger(KEY_PORT, 8080);
 
-        this.discovery = ServiceDiscovery.create(vertx, new ServiceDiscoveryOptions().setBackendConfiguration(this.getZookeeperConfig()));
+        this.discovery = ServiceDiscovery.create(vertx, new ServiceDiscoveryOptions().setBackendConfiguration(this.config().getJsonObject(KEY_ZOOKEEPER)));
         Router router = Router.router(vertx);
         ServiceDiscoveryRestEndpoint.create(router.getDelegate(), discovery.getDelegate());
         router.route("/").handler(this::serviceHandler);
@@ -58,15 +59,8 @@ public class ServiceVerticle extends AbstractVerticle {
         server.rxListen(servicePort)
                 .doAfterSuccess(s -> logger.debug("http server started on port {}", servicePort))
                 .flatMap(s -> this.publishService(serviceName, serviceHost, servicePort))
-                .doAfterSuccess(r -> logger.debug("Service published:" + r.toString()))
+                .doAfterSuccess(r -> logger.debug("Service published"))
                 .subscribe(s -> startFuture.complete(), startFuture::fail);
-    }
-
-    private JsonObject getZookeeperConfig() {
-        return new JsonObject().put("connection", "127.0.0.1:2181")
-                .put("ephemeral", true)
-                .put("guaranteed", true)
-                .put("basePath", "/services/my-backend");
     }
 
     @Override
