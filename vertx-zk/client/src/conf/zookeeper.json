@@ -1,0 +1,6 @@
+{
+  "connection": "127.0.0.1:2181",
+  "ephemeral": true,
+  "guaranteed": true,
+  "basePath": "/services/api-services"
+}
