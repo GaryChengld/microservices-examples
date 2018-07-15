@@ -13,7 +13,7 @@
   <packaging>pom</packaging>
 
   <properties>
-    <vertx.version>3.5.2</vertx.version>
+    <vertx.version>3.5.3</vertx.version>
     <main.class>io.vertx.core.Launcher</main.class>
     <main.verticle/>
   </properties>

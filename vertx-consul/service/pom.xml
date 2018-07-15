@@ -16,6 +16,14 @@
 
   <artifactId>vertx-consul-discovery-service</artifactId>
 
+  <dependencies>
+    <dependency>
+      <groupId>microservices.examples</groupId>
+      <artifactId>consul-backend</artifactId>
+      <version>0.1.0-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <plugin>

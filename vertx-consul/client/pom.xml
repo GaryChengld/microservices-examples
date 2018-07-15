@@ -13,8 +13,19 @@
   <artifactId>vertx-consul-discovery-client</artifactId>
 
   <properties>
+    <!--
     <main.class>vertx.examples.discovery.consul.client.Client</main.class>
+    -->
+    <main.verticle>vertx.examples.discovery.consul.client.ClientVerticle</main.verticle>
   </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>microservices.examples</groupId>
+      <artifactId>consul-backend</artifactId>
+      <version>0.1.0-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
 
   <build>
     <plugins>

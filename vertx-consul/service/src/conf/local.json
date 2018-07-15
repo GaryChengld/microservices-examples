@@ -1,12 +1,20 @@
 {
   "service": {
     "name": "MyService",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "port": 8082,
-    "healthCheck": "/healthCheck"
+    "root": "/",
+    "metadata": {
+      "checkoptions": {
+        "http": "http://localhost:8082/healthCheck",
+        "interval": "30s",
+        "deregisterAfter": "30m"
+      }
+    }
   },
-  "consul": {
+  "discovery": {
     "host": "127.0.0.1",
-    "port": 8500
+    "port": 8500,
+    "dc": "dc1"
   }
 }
