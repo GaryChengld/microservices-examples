@@ -6,9 +6,9 @@
 
   <parent>
     <groupId>microservices.examples</groupId>
-    <artifactId>vertx-pom</artifactId>
+    <artifactId>vertx-parent</artifactId>
     <version>0.1.0-SNAPSHOT</version>
-    <relativePath>../vertx-pom</relativePath>
+    <relativePath>../vertx-parent</relativePath>
   </parent>
   <artifactId>service-discovery-vertx-core</artifactId>
   <packaging>pom</packaging>
