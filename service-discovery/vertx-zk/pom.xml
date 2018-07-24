@@ -8,15 +8,14 @@
     <groupId>microservices.examples</groupId>
     <artifactId>vertx-parent</artifactId>
     <version>0.1.0-SNAPSHOT</version>
-    <relativePath>../vertx-parent</relativePath>
+    <relativePath>../../vertx-parent</relativePath>
   </parent>
-  <artifactId>service-discovery-vertx-consul</artifactId>
+  <artifactId>service-discovery-vertx-zk</artifactId>
   <packaging>pom</packaging>
 
   <modules>
     <module>service</module>
     <module>client</module>
-    <module>consul-backend</module>
   </modules>
 
   <dependencies>
@@ -38,9 +37,15 @@
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
-      <artifactId>vertx-consul-client</artifactId>
+      <artifactId>vertx-service-discovery-backend-zookeeper</artifactId>
+      <version>${vertx.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
-
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>

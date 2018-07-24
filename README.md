@@ -1,13 +1,14 @@
-## Microservices examples
+# Microservices examples
 
-This repository demonstrates development in microservices architecture and design patterns
+This repository contains examples which applied micro-services architecture and design patterns
 
-### Examples
+## Examples
 
 * [Service Discovery](#service-discovery)
 
-### Service Discovery
+## Service Discovery
 
-- [vertx-core](vertx-core/) -- Vert.x provided service discovery
-- [vertx-consul](vertx-consul/) -- Use consul as service discovery in vert.x
-- [vertx-zl](vertx-zk/) -- Use Apache Zookeeper as service discovery in vert.x
+- [vertx-core](service-discovery/vertx-core/) -- Vert.x provided service discovery
+- [vertx-consul](service-discovery/vertx-consul/) -- Use consul as service discovery in Vert.x
+- [vertx-zl](service-discovery/vertx-zk/) -- Use Apache Zookeeper as service discovery in Vert.x
+- [spring-boot-eureka](service-discovery/spring-boot-eureka/) -- Use Eureka as service discovery in spring boot

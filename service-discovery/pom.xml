@@ -5,13 +5,15 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.examples</groupId>
-  <artifactId>microservices</artifactId>
+  <artifactId>service-discovery</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <modules>
-    <module>vertx-parent</module>
-    <module>service-discovery</module>
-  </modules>
+ <modules>
+   <module>vertx-core</module>
+   <module>vertx-consul</module>
+   <module>vertx-zk</module>
+   <module>spring-boot-eureka</module>
+ </modules>
 
 </project>

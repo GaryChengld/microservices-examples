@@ -5,12 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>microservices.examples</groupId>
+    <groupId>io.examples</groupId>
     <artifactId>vertx-parent</artifactId>
     <version>0.1.0-SNAPSHOT</version>
-    <relativePath>../vertx-parent</relativePath>
+    <relativePath>../../vertx-parent</relativePath>
   </parent>
-  <artifactId>service-discovery-vertx-zk</artifactId>
+  <artifactId>discovery-vertx-core</artifactId>
   <packaging>pom</packaging>
 
   <modules>
@@ -37,14 +37,7 @@
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
-      <artifactId>vertx-service-discovery-backend-zookeeper</artifactId>
-      <version>${vertx.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.slf4j</groupId>
-          <artifactId>slf4j-log4j12</artifactId>
-        </exclusion>
-      </exclusions>
+      <artifactId>vertx-hazelcast</artifactId>
     </dependency>
     <dependency>
       <groupId>ch.qos.logback</groupId>
