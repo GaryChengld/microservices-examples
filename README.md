@@ -1,6 +1,6 @@
 # Microservices examples
 
-This repository contains examples which applied micro-services architecture and design patterns
+**This repository contains examples which applied micro-services architecture and design patterns**
 
 ## Examples
 
