@@ -1,0 +1,16 @@
+target/
+bower_components/
+node_modules/
+dist/
+.idea/
+.tmp/
+.project
+.classpath
+.settings
+.metadata/
+*.iml
+*.log
+*.tmp
+*.zip
+*.bak
+.vertx/
