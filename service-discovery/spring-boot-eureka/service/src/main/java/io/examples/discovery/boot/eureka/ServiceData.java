@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Author Gary Cheng
+ * @author Gary Cheng
  * @Date 7/12/2018
  */
 @Data

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.reactive.function.client.WebClient;
 
 /**
- * @Author Gary Cheng
+ * @author Gary Cheng
  */
 @SpringBootApplication
 @EnableEurekaClient

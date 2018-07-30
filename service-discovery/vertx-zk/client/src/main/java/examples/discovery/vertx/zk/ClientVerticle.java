@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 /**
  * The client verticle which invokes service
  *
- * @Author Gary Cheng
+ * @author Gary Cheng
  */
 public class ClientVerticle extends AbstractVerticle {
     private static final Logger logger = LoggerFactory.getLogger(ClientVerticle.class);

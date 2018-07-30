@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
 /**
- * @Author Gary Cheng
+ * @author Gary Cheng
  */
 @Data
 @NoArgsConstructor
