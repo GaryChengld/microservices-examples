@@ -1,0 +1,11 @@
+{
+  "service": {
+    "name": "movieService",
+    "port": 8180
+  },
+  "database": {
+    "url": "jdbc:hsqldb:file:/db/movieDB;shutdown=true",
+    "driver_class": "org.hsqldb.jdbcDriver",
+    "max_pool_size": 10
+  }
+}
