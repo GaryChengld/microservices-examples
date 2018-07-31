@@ -1,6 +1,6 @@
 ## This is Reactive restful service example build on vert.x
 
-## Local 
+### Local 
 
 #### Build
 ```
@@ -12,7 +12,7 @@ mvn clean package
 java -jar target\rest-vertx-fat.jar -conf src\conf\config.json
 ```
 
-## Docker
+### Docker
 
 #### Build
 ```
