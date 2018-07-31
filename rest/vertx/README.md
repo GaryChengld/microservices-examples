@@ -9,7 +9,6 @@ mvn clean package
 
 #### Start
 ```
-cd service
 java -jar target\rest-vertx-fat.jar -conf src\conf\config.json
 ```
 
@@ -22,7 +21,6 @@ mvn clean package
 ```
 
 #### Start
-
 ```
 docker run -p 8180:8180 examples/rest/vertx
 ```
