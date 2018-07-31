@@ -4,6 +4,7 @@
 
 ## Examples
 
+* [Restful service](rest/) -- Restful service examples on popular frameworks
 * [Service Discovery](#service-discovery)
 
 ## Service Discovery
@@ -12,3 +13,6 @@
 - [vertx-consul](service-discovery/vertx-consul/) -- Use consul as service discovery in Vert.x
 - [vertx-zk](service-discovery/vertx-zk/) -- Use Apache Zookeeper as service discovery in Vert.x
 - [spring-boot-eureka](service-discovery/spring-boot-eureka/) -- Use Eureka as service discovery in spring boot
+
+## Restful Service
+- [vertx](rest/vertx/) -- Vert.x reactive restful service

@@ -45,7 +45,7 @@ public class ApiHandler {
      * @param movieRepository movie Repository object
      * @return
      */
-    public static Router apiRouter(Vertx vertx, MovieRepository movieRepository) {
+    public static Router createApiRouter(Vertx vertx, MovieRepository movieRepository) {
         logger.debug("Creating ApiHandler");
         ApiHandler apiHandler = new ApiHandler(vertx, movieRepository);
         Router apiRouter = Router.router(vertx);

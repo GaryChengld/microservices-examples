@@ -58,7 +58,7 @@ public class MainVerticle extends AbstractVerticle {
         logger.debug("Starting Movie HttpServer...");
         int port = serviceConfig.getInteger(KEY_PORT, 8080);
         Router router = Router.router(vertx);
-        router.mountSubRouter(API_BASE_PATH, ApiHandler.apiRouter(vertx, movieRepository));
+        router.mountSubRouter(API_BASE_PATH, ApiHandler.createApiRouter(vertx, movieRepository));
         return vertx.createHttpServer()
                 .requestHandler(router::accept)
                 .rxListen(port)

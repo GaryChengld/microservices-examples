@@ -1,0 +1,1 @@
+docker build -t examples/rest/vertx -f ./Dockerfile ./
