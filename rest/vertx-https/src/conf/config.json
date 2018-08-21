@@ -1,0 +1,8 @@
+{
+  "name": "greeting",
+  "port": 4443,
+  "keyStore": {
+    "path": "server-keystore.jks",
+    "password": "Passw0rd"
+  }
+}
