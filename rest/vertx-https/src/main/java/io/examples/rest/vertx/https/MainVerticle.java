@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 
 
 /**
- * Main verticle of Movie service
+ * Main verticle of Greeting service
  *
  * @author Gary Cheng
  */

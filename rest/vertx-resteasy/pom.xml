@@ -10,13 +10,19 @@
     <version>0.1.0-SNAPSHOT</version>
     <relativePath>../../vertx-parent</relativePath>
   </parent>
-  <artifactId>rest-vertx-https</artifactId>
+  <artifactId>resteasy-vertx</artifactId>
 
   <properties>
-    <main.verticle>io.examples.rest.vertx.https.MainVerticle</main.verticle>
+    <resteasy.version>3.1.0.Final</resteasy.version>
+    <main.verticle>io.examples.rest.vertx.resteasy.MainVerticle</main.verticle>
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-vertx</artifactId>
+      <version>${resteasy.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>

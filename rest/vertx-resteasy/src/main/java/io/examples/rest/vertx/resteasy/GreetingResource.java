@@ -1,4 +1,4 @@
-package io.examples.rest.vertx.https;
+package io.examples.rest.vertx.resteasy;
 
 import io.vertx.core.json.JsonObject;
 import io.vertx.reactivex.core.Vertx;
@@ -6,34 +6,14 @@ import io.vertx.reactivex.ext.web.Router;
 import io.vertx.reactivex.ext.web.RoutingContext;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.ws.rs.Path;
+
 /**
  * @author Gary Cheng
  */
 @Slf4j
-public class ApiHandler {
-    private Router router;
-
-    private ApiHandler(Vertx vertx) {
-        Router router = Router.router(vertx);
-        router.get("/greetings").handler(this::greeting);
-        router.get("/greetings/:name").handler(this::greetingWithName);
-        this.router = router;
-    }
-
-    /**
-     * Create API router for Greeting Urls
-     *
-     * @param vertx the vertx instance
-     * @return
-     */
-    public static ApiHandler apiHandler(Vertx vertx) {
-        log.debug("Creating ApiHandler");
-        return new ApiHandler(vertx);
-    }
-
-    public Router router() {
-        return router;
-    }
+@Path("/api/greetings")
+public class GreetingResource {
 
     private void greeting(RoutingContext context) {
         log.debug("Received greeting request");

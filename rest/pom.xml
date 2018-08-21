@@ -12,6 +12,7 @@
   <modules>
     <module>vertx</module>
     <module>vertx-https</module>
+    <module>vertx-resteasy</module>
   </modules>
 
 </project>
