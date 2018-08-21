@@ -1,6 +1,7 @@
-## This is Reactive restful service example build on vert.x
+## Example of Reactive restful service build on vert.x
 
 ####APIs
+
 |method|url|desc|
 |:---|:---|:---|
 |POST|http://localhost:8180/api/v1/movie/|Create a new movie record|
