@@ -1,6 +1,6 @@
 ## Example of Reactive restful service build on vert.x
 
-####APIs
+###APIs
 
 |method|url|desc|
 |:---|:---|:---|

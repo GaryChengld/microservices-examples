@@ -1,4 +1,4 @@
-## This is Reactive restful service example build on vert.x
+## Example of https reactive restful service on vert.x
 
 ### Local 
 
