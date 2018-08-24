@@ -4,7 +4,7 @@
 
 Vert.x dosn't have Resteasy adapter in rxjava style for now , have to implement it by callback style libs.
 
-###Build Hint
+### Build Hint
 
 Every Resteasy provider jar has it's one javax.ws.rs.ext.Providers file under META-INF\services folder, to prevent maven overwrite it during build fat jar, need add this file to AppendingTransformer
 
