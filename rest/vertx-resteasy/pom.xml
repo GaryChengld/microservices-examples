@@ -13,7 +13,7 @@
   <artifactId>resteasy-vertx</artifactId>
 
   <properties>
-    <resteasy.version>3.1.0.Final</resteasy.version>
+    <resteasy.version>3.6.1.Final</resteasy.version>
     <main.verticle>io.examples.rest.vertx.resteasy.MainVerticle</main.verticle>
   </properties>
 
@@ -24,9 +24,9 @@
       <version>${resteasy.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <scope>compile</scope>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-jackson2-provider</artifactId>
+      <version>${resteasy.version}</version>
     </dependency>
   </dependencies>
 

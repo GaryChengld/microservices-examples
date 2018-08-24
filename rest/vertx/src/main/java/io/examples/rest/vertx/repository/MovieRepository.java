@@ -8,6 +8,7 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ext.sql.UpdateResult;
 import io.vertx.reactivex.core.Vertx;
 import io.vertx.reactivex.ext.jdbc.JDBCClient;
+import java.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,6 +27,7 @@ import java.util.stream.Collectors;
  */
 public class MovieRepository {
     private static final Logger logger = LoggerFactory.getLogger(MovieRepository.class);
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     private static final String SQL_CREATE_MOVIE_TABLE = "CREATE TABLE IF NOT EXISTS Movie(Id integer identity primary key, " +
             "ImdbId VARCHAR(32) UNIQUE, Title VARCHAR(256) NOT NULL, Language VARCHAR(20), ReleaseDate DATE, Genre VARCHAR(60))";
@@ -168,7 +170,7 @@ public class MovieRepository {
                 .imdbId(jsonArray.getString(1))
                 .title(jsonArray.getString(2))
                 .language(jsonArray.getString(3))
-                .releaseDate(this.instantToLocalDate(jsonArray.getInstant(4)))
+                .releaseDate(this.stringToLocalDate(jsonArray.getString(4)))
                 .genre(jsonArray.getString(5))
                 .build();
     }
@@ -189,7 +191,12 @@ public class MovieRepository {
         }
     }
 
+    private LocalDate stringToLocalDate(String date) {
+        return null == date ? null : LocalDate.parse(date, DATE_FORMATTER);
+    }
+
     private LocalDate instantToLocalDate(Instant instant) {
+        logger.debug("instant:{}", instant.toString());
         return null != instant ? instant.atZone(ZoneId.systemDefault()).toLocalDate() : null;
     }
 

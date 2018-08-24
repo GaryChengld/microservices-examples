@@ -158,6 +158,7 @@ public class ApiHandler {
         void handleException(Throwable t) {
             logger.debug("handling exception response");
             logger.error(t.getLocalizedMessage());
+            t.printStackTrace();
             handleApiResponse(SC_INTERNAL_SERVER_ERROR, new ApiResponse(99, "error", t.getLocalizedMessage()));
         }
 

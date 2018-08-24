@@ -1,13 +1,24 @@
 package io.examples.rest.vertx.resteasy;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
 /**
  * @author Gary Cheng
  */
-@Data
-@AllArgsConstructor
+
 public class Greeting {
     private String message;
+
+    public Greeting() {
+    }
+
+    public Greeting(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

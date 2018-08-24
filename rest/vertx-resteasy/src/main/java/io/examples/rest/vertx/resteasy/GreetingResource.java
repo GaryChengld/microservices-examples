@@ -1,39 +1,40 @@
 package io.examples.rest.vertx.resteasy;
 
-import io.vertx.core.json.JsonObject;
-import io.vertx.reactivex.core.Vertx;
-import io.vertx.reactivex.ext.web.Router;
-import io.vertx.reactivex.ext.web.RoutingContext;
-import lombok.extern.slf4j.Slf4j;
-
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.container.AsyncResponse;
+import javax.ws.rs.container.Suspended;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Gary Cheng
  */
-@Slf4j
 @Path("/api/greetings")
 public class GreetingResource {
+    private static final Logger logger = LoggerFactory.getLogger(GreetingResource.class);
 
-    private void greeting(RoutingContext context) {
-        log.debug("Received greeting request");
+    @GET
+    @Path("/")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void greeting(@Suspended final AsyncResponse asyncResponse) {
+        logger.debug("Received greeting request");
         Greeting greeting = new Greeting("Hello World");
-        this.handleGreetingResponse(context, greeting);
-        log.debug("Handling greeting request completed");
+        asyncResponse.resume(Response.status(Response.Status.OK).entity(greeting).build());
+        logger.debug("Handling greeting request completed");
     }
 
-    private void greetingWithName(RoutingContext context) {
-        log.debug("Received greetingWithName request");
-        String name = context.request().getParam("name");
+    @GET
+    @Path("/{name}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void greetingWithName(@Suspended final AsyncResponse asyncResponse, @PathParam("name") String name) {
+        logger.debug("Received greetingWithName request");
         Greeting greeting = new Greeting("Hello " + name);
-        this.handleGreetingResponse(context, greeting);
-        log.debug("Handling greetingWithName request completed");
-    }
-
-    private void handleGreetingResponse(RoutingContext context, Greeting greeting) {
-        context.response()
-                .setStatusCode(200)
-                .putHeader("Content-Type", "application/json")
-                .end(JsonObject.mapFrom(greeting).encodePrettily());
+        asyncResponse.resume(Response.status(Response.Status.OK).entity(greeting).build());
+        logger.debug("Handling greetingWithName request completed");
     }
 }
