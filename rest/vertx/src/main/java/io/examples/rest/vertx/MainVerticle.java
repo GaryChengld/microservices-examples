@@ -34,6 +34,7 @@ public class MainVerticle extends AbstractVerticle {
     private static final String CONFIG_FILE = "src/conf/config.json";
     private static final String API_BASE_PATH = "/api/v1";
 
+    // Convenience method so you can run it in IDE
     public static void main(String[] args) {
         Vertx vertx = Vertx.vertx();
         vertx.fileSystem().rxReadFile(CONFIG_FILE)

@@ -1,6 +1,8 @@
 ## Example of Reactive restful service build on vert.x
 
-### APIs
+[Vert.x](https://vertx.io/), known as one of the leading frameworks for performance, event-driven applications. It uses asynchronous programming principles which allows it to process a large number of concurrency using a small number of kernel threads. Asynchronous programming is a style promoting the ability to write non-blocking code. The platform stays responsive under heavy and varying load and is designed to follow [Reactive Manifesto](https://www.reactivemanifesto.org/) principles.
+
+This examples implements some simple restful services as below
 
 |method|url|desc|
 |:---|:---|:---|
