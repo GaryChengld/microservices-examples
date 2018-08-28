@@ -1,6 +1,7 @@
 package io.examples.common.repository;
 
 import io.examples.common.domain.Product;
+import io.examples.common.repository.impl.InMemoryProductRepository;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,6 +10,9 @@ import java.util.Optional;
  */
 public interface ProductRepository {
 
+    static ProductRepository instance() {
+        return InMemoryProductRepository.getInstance();
+    }
     /**
      * Return all products
      *
@@ -30,7 +34,7 @@ public interface ProductRepository {
      * @param id
      * @return
      */
-    Optional<Product> getProductById(int id);
+    Optional<Product> getProductById(Integer id);
 
 
     /**
@@ -53,6 +57,6 @@ public interface ProductRepository {
      *
      * @param id
      */
-    void deleteProduct(int id);
+    void deleteProduct(Integer id);
 
 }

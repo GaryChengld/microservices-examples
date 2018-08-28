@@ -1,7 +1,6 @@
 package io.examples.common.repository.impl;
 
 import io.examples.common.domain.Product;
-import io.examples.common.domain.ProductUtils;
 import io.examples.common.repository.ProductRepository;
 
 import java.util.*;
@@ -36,13 +35,13 @@ public class InMemoryProductRepository implements ProductRepository {
     public List<Product> getProductsByCategory(String category) {
         return productMap.values()
                 .stream()
-                .sorted(Comparator.comparing(product -> product.getId()))
                 .filter(product -> category.equals(product.getCategory()))
+                .sorted(Comparator.comparing(product -> product.getName()))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public Optional<Product> getProductById(int id) {
+    public Optional<Product> getProductById(Integer id) {
         return Optional.ofNullable(productMap.get(id));
     }
 
@@ -62,7 +61,7 @@ public class InMemoryProductRepository implements ProductRepository {
     }
 
     @Override
-    public void deleteProduct(int id) {
-
+    public void deleteProduct(Integer id) {
+        productMap.remove(id);
     }
 }

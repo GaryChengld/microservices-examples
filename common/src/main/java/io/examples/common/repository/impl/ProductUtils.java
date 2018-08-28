@@ -1,5 +1,6 @@
-package io.examples.common.domain;
+package io.examples.common.repository.impl;
 
+import io.examples.common.domain.Product;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
