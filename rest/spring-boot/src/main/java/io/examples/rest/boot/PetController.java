@@ -1,5 +1,6 @@
 package io.examples.rest.boot;
 
+import io.examples.common.ApiResponses;
 import io.examples.common.domain.ApiResponse;
 import io.examples.common.domain.Product;
 import io.examples.common.repository.ProductRepository;
@@ -49,23 +50,25 @@ public class PetController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ApiResponse> update(@PathVariable("id") Integer id, @RequestBody Product product) {
+    @ResponseBody
+    public ApiResponse update(@PathVariable("id") Integer id, @RequestBody Product product) {
         return productRepository.getProductById(id).map(p -> {
             product.setId(p.getId());
             productRepository.updateProduct(product);
-            return ResponseEntity.ok(ApiResponse.message(1, "Update pet successfully"));
-        }).orElseGet(this::petNotFound);
+            return ApiResponses.MSG_UPDATE_SUCCESS;
+        }).orElse(ApiResponses.ERR_PET_NOT_FOUND);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<ApiResponse> delete(@PathVariable("id") Integer id) {
+    @ResponseBody
+    public ApiResponse delete(@PathVariable("id") Integer id) {
         return productRepository.getProductById(id).map(p -> {
             productRepository.deleteProduct(id);
-            return ResponseEntity.ok(ApiResponse.message(2, "Delete pet successfully"));
-        }).orElseGet(this::petNotFound);
+            return ApiResponses.MSG_DELETE_SUCCESS;
+        }).orElse(ApiResponses.ERR_PET_NOT_FOUND);
     }
 
     private ResponseEntity<ApiResponse> petNotFound() {
-        return new ResponseEntity<>(ApiResponse.error(101, "Pet not found"), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(ApiResponses.ERR_PET_NOT_FOUND, HttpStatus.NOT_FOUND);
     }
 }
