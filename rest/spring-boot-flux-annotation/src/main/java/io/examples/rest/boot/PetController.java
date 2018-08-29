@@ -31,7 +31,7 @@ public class PetController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Mono<ResponseEntity<?>> byId(@PathVariable("id") Integer id) {
         return productRepository.getProductById(id)
-                .<ResponseEntity<?>>map(product -> ResponseEntity.ok(product))
+                .<ResponseEntity<?>>map(ResponseEntity::ok)
                 .defaultIfEmpty(this.petNotFound());
     }
 
