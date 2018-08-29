@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
+ * Reactive Product repository on ReactiveX Java 2.0
+ *
  * @author Gary Cheng
  */
 public class ReactiveXProductRepositoryAdapter {
@@ -43,14 +45,20 @@ public class ReactiveXProductRepositoryAdapter {
     }
 
     public Single<Product> addProduct(Product product) {
-        return Single.create(emitter -> blockingRepository.addProduct(product));
+        return Single.create(emitter -> emitter.onSuccess(blockingRepository.addProduct(product)));
     }
 
     public Completable updateProduct(Product product) {
-        return Completable.create(emitter -> blockingRepository.updateProduct(product));
+        return Completable.create(emitter -> {
+            blockingRepository.updateProduct(product);
+            emitter.onComplete();
+        });
     }
 
     public Completable deleteProduct(Integer id) {
-        return Completable.create(emitter -> blockingRepository.deleteProduct(id));
+        return Completable.create(emitter -> {
+            blockingRepository.deleteProduct(id);
+            emitter.onComplete();
+        });
     }
 }

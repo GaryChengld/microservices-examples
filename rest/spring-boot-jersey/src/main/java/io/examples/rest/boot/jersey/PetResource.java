@@ -62,27 +62,21 @@ public class PetResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/{id}")
     public Response update(@PathParam("id") Integer id, Product product) {
-        Optional<Product> optional = productRepository.getProductById(id);
-        if (optional.isPresent()) {
-            product.setId(optional.get().getId());
+        return productRepository.getProductById(id).map(p -> {
+            product.setId(p.getId());
             productRepository.updateProduct(product);
             return Response.ok().entity(ApiResponse.message(1, "Update pet successfully")).build();
-        } else {
-            return this.petNotFound();
-        }
+        }).orElseGet(this::petNotFound);
     }
 
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/{id}")
     public Response delete(@PathParam("id") Integer id) {
-        Optional<Product> optional = productRepository.getProductById(id);
-        if (optional.isPresent()) {
+        return productRepository.getProductById(id).map(p -> {
             productRepository.deleteProduct(id);
-            return Response.ok().entity(ApiResponse.message(1, "Delete pet successfully")).build();
-        } else {
-            return this.petNotFound();
-        }
+            return Response.ok().entity(ApiResponse.message(2, "Delete pet successfully")).build();
+        }).orElseGet(this::petNotFound);
     }
 
     private Response petNotFound() {

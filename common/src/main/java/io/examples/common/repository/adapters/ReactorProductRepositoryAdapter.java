@@ -7,6 +7,8 @@ import java.util.Optional;
 import reactor.core.publisher.Mono;
 
 /**
+ * Reactive Product repository on Reactor for Spring-boot 2.0
+ *
  * @author Gary Cheng
  */
 public class ReactorProductRepositoryAdapter {
@@ -41,14 +43,20 @@ public class ReactorProductRepositoryAdapter {
     }
 
     public Mono<Product> addProduct(Product product) {
-        return Mono.create(emitter -> blockingRepository.addProduct(product));
+        return Mono.create(emitter -> emitter.success(blockingRepository.addProduct(product)));
     }
 
-    public Mono<Void> updateProduct(Product product) {
-        return Mono.create(emitter -> blockingRepository.updateProduct(product));
+    public Mono<Product> updateProduct(Product product) {
+        return Mono.create(emitter -> {
+            blockingRepository.updateProduct(product);
+            emitter.success(product);
+        });
     }
 
-    public Mono<Void> deleteProduct(Integer id) {
-        return Mono.create(emitter -> blockingRepository.deleteProduct(id));
+    public Mono<Integer> deleteProduct(Integer id) {
+        return Mono.create(emitter -> {
+            blockingRepository.deleteProduct(id);
+            emitter.success(id);
+        });
     }
 }

@@ -15,6 +15,7 @@
     <module>vertx-resteasy</module>
     <module>spring-boot</module>
     <module>spring-boot-jersey</module>
+    <module>spring-boot-flux-annotation</module>
   </modules>
 
 </project>
