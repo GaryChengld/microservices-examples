@@ -1,4 +1,4 @@
-package io.examples.rest.boot.jersey;
+package io.examples.rest.boot;
 
 import io.examples.petstore.repository.ProductRepository;
 import org.springframework.boot.SpringApplication;
@@ -14,13 +14,13 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @SpringBootApplication
-public class JerseyApp {
+public class MainApp {
     public static void main(String[] args) {
-        SpringApplication.run(JerseyApp.class, args);
+        SpringApplication.run(MainApp.class, args);
     }
 
     @Bean
-    ProductRepository productRepository() {
+    public ProductRepository productRepository() {
         return ProductRepository.instance();
     }
 }

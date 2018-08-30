@@ -3,9 +3,8 @@ package io.examples.rest.boot;
 import io.examples.common.ApiResponse;
 import io.examples.petstore.ApiResponses;
 import io.examples.petstore.domain.Product;
-import io.examples.petstore.repository.ProductRepository;
+import io.examples.petstore.repository.adapters.ReactorProductRepositoryAdapter;
 import java.util.List;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,60 +15,65 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 /**
+ * Pet Controller on spring-webflux
+ *
  * @author Gary Cheng
  */
-@Slf4j
 @RestController
-@RequestMapping(value = "/v1/pet", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/v1/pet", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class PetController {
     private static final ResponseEntity<ApiResponse> RESP_PET_NOT_FOUND
             = new ResponseEntity<>(ApiResponses.ERR_PET_NOT_FOUND, HttpStatus.NOT_FOUND);
+
     @Autowired
-    private ProductRepository productRepository;
+    private ReactorProductRepositoryAdapter productRepository;
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public List<Product> all() {
+    public Mono<List<Product>> all() {
         return productRepository.getProducts();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> byId(@PathVariable("id") Integer id) {
+    public Mono<ResponseEntity<?>> byId(@PathVariable("id") Integer id) {
         return productRepository.getProductById(id)
                 .<ResponseEntity<?>>map(ResponseEntity::ok)
-                .orElse(RESP_PET_NOT_FOUND);
+                .defaultIfEmpty(RESP_PET_NOT_FOUND);
     }
 
     @RequestMapping(value = "/findByCategory/{category}", method = RequestMethod.GET)
     @ResponseBody
-    public List<Product> byCategory(@PathVariable("category") String category) {
+    public Mono<List<Product>> byCategory(@PathVariable("category") String category) {
         return productRepository.getProductsByCategory(category);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public Product add(@RequestBody Product product) {
+    public Mono<Product> add(@RequestBody Product product) {
         return productRepository.addProduct(product);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ApiResponse update(@PathVariable("id") Integer id, @RequestBody Product product) {
-        return productRepository.getProductById(id).map(p -> {
-            product.setId(p.getId());
-            productRepository.updateProduct(product);
-            return ApiResponses.MSG_UPDATE_SUCCESS;
-        }).orElse(ApiResponses.ERR_PET_NOT_FOUND);
+    public Mono<ApiResponse> update(@PathVariable("id") Integer id, @RequestBody Product product) {
+        return productRepository.getProductById(id)
+                .flatMap(p -> {
+                    product.setId(p.getId());
+                    return productRepository.updateProduct(product);
+                })
+                .map(p -> ApiResponses.MSG_UPDATE_SUCCESS)
+                .defaultIfEmpty(ApiResponses.ERR_PET_NOT_FOUND);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public ApiResponse delete(@PathVariable("id") Integer id) {
-        return productRepository.getProductById(id).map(p -> {
-            productRepository.deleteProduct(id);
-            return ApiResponses.MSG_DELETE_SUCCESS;
-        }).orElse(ApiResponses.ERR_PET_NOT_FOUND);
+    public Mono<ApiResponse> delete(@PathVariable("id") Integer id) {
+        return productRepository.getProductById(id)
+                .flatMap(p -> productRepository.deleteProduct(id))
+                .map(deleted -> ApiResponses.MSG_DELETE_SUCCESS)
+                .defaultIfEmpty(ApiResponses.ERR_PET_NOT_FOUND);
     }
 }

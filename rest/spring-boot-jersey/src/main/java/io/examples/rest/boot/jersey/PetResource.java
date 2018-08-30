@@ -1,8 +1,9 @@
 package io.examples.rest.boot.jersey;
 
-import io.examples.common.domain.ApiResponse;
-import io.examples.common.domain.Product;
-import io.examples.common.repository.ProductRepository;
+import io.examples.common.ApiResponse;
+import io.examples.petstore.ApiResponses;
+import io.examples.petstore.domain.Product;
+import io.examples.petstore.repository.ProductRepository;
 import java.util.List;
 import java.util.Optional;
 import javax.ws.rs.Consumes;
@@ -28,6 +29,8 @@ import org.springframework.stereotype.Component;
 @Path("/v1/pet")
 @Produces(MediaType.APPLICATION_JSON)
 public class PetResource {
+    private static final Response RESP_PET_NOT_FOUND
+            = Response.status(Response.Status.NOT_FOUND).entity(ApiResponses.ERR_PET_NOT_FOUND).build();
 
     @Autowired
     private ProductRepository productRepository;
@@ -42,7 +45,7 @@ public class PetResource {
     public Response byId(@PathParam("id") Integer id) {
         Optional<Product> product = productRepository.getProductById(id);
         return product.map(p -> Response.ok().entity(product.get()).build())
-                .orElseGet(this::petNotFound);
+                .orElse(RESP_PET_NOT_FOUND);
     }
 
     @GET
@@ -61,25 +64,21 @@ public class PetResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/{id}")
-    public Response update(@PathParam("id") Integer id, Product product) {
+    public ApiResponse update(@PathParam("id") Integer id, Product product) {
         return productRepository.getProductById(id).map(p -> {
             product.setId(p.getId());
             productRepository.updateProduct(product);
-            return Response.ok().entity(ApiResponse.message(1, "Update pet successfully")).build();
-        }).orElseGet(this::petNotFound);
+            return ApiResponses.MSG_UPDATE_SUCCESS;
+        }).orElse(ApiResponses.ERR_PET_NOT_FOUND);
     }
 
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/{id}")
-    public Response delete(@PathParam("id") Integer id) {
+    public ApiResponse delete(@PathParam("id") Integer id) {
         return productRepository.getProductById(id).map(p -> {
             productRepository.deleteProduct(id);
-            return Response.ok().entity(ApiResponse.message(2, "Delete pet successfully")).build();
-        }).orElseGet(this::petNotFound);
-    }
-
-    private Response petNotFound() {
-        return Response.status(Response.Status.NOT_FOUND).entity(ApiResponse.error(101, "Pet not found")).build();
+            return ApiResponses.MSG_DELETE_SUCCESS;
+        }).orElse(ApiResponses.ERR_PET_NOT_FOUND);
     }
 }
