@@ -3,8 +3,7 @@ package io.examples.rest.boot;
 import io.examples.common.ApiResponse;
 import io.examples.petstore.ApiResponses;
 import io.examples.petstore.domain.Product;
-import io.examples.petstore.repository.adapters.ReactorProductRepositoryAdapter;
-import java.util.List;
+import io.examples.petstore.repository.FluxProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
@@ -29,11 +29,11 @@ public class PetController {
             = new ResponseEntity<>(ApiResponses.ERR_PET_NOT_FOUND, HttpStatus.NOT_FOUND);
 
     @Autowired
-    private ReactorProductRepositoryAdapter productRepository;
+    private FluxProductRepository productRepository;
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Mono<List<Product>> all() {
+    public Flux<Product> all() {
         return productRepository.getProducts();
     }
 
@@ -46,7 +46,7 @@ public class PetController {
 
     @RequestMapping(value = "/findByCategory/{category}", method = RequestMethod.GET)
     @ResponseBody
-    public Mono<List<Product>> byCategory(@PathVariable("category") String category) {
+    public Flux<Product> byCategory(@PathVariable("category") String category) {
         return productRepository.getProductsByCategory(category);
     }
 
@@ -64,7 +64,7 @@ public class PetController {
                     product.setId(p.getId());
                     return productRepository.updateProduct(product);
                 })
-                .map(p -> ApiResponses.MSG_UPDATE_SUCCESS)
+                .map(updated -> ApiResponses.MSG_UPDATE_SUCCESS)
                 .defaultIfEmpty(ApiResponses.ERR_PET_NOT_FOUND);
     }
 

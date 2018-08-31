@@ -1,6 +1,7 @@
 package io.examples.rest.boot;
 
-import io.examples.petstore.repository.adapters.ReactorProductRepositoryAdapter;
+import io.examples.petstore.repository.FluxProductRepository;
+import io.examples.petstore.repository.impl.FluxProductRepositoryImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +21,7 @@ public class MainApp {
     }
 
     @Bean
-    ReactorProductRepositoryAdapter productRepository() {
-        return ReactorProductRepositoryAdapter.getInstance();
+    FluxProductRepository productRepository() {
+        return new FluxProductRepositoryImpl();
     }
 }

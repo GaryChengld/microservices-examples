@@ -1,9 +1,9 @@
 package io.examples.rest.boot;
 
-import io.examples.petstore.repository.adapters.ReactorProductRepositoryAdapter;
+import io.examples.petstore.repository.FluxProductRepository;
+import io.examples.petstore.repository.impl.FluxProductRepositoryImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.reactive.config.EnableWebFlux;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
@@ -24,16 +24,15 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
  * @author Gary Cheng
  */
 @Configuration
-@EnableWebFlux
 public class RoutingConfiguration {
 
     @Bean
-    public ReactorProductRepositoryAdapter productRepository() {
-        return ReactorProductRepositoryAdapter.getInstance();
+    public FluxProductRepository productRepository() {
+        return new FluxProductRepositoryImpl();
     }
 
     @Bean
-    public PetHandler petHandler(ReactorProductRepositoryAdapter productRepository) {
+    public PetHandler petHandler(FluxProductRepository productRepository) {
         return new PetHandler(productRepository);
     }
 

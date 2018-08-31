@@ -2,7 +2,7 @@ package io.examples.rest.boot;
 
 import io.examples.petstore.ApiResponses;
 import io.examples.petstore.domain.Product;
-import io.examples.petstore.repository.adapters.ReactorProductRepositoryAdapter;
+import io.examples.petstore.repository.FluxProductRepository;
 import java.util.concurrent.atomic.AtomicReference;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.reactive.function.server.ServerRequest;
@@ -23,9 +23,9 @@ import static org.springframework.web.reactive.function.BodyInserters.fromObject
  */
 @Slf4j
 public class PetHandler {
-    private final ReactorProductRepositoryAdapter productRepository;
+    private final FluxProductRepository productRepository;
 
-    public PetHandler(ReactorProductRepositoryAdapter productRepository) {
+    public PetHandler(FluxProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
@@ -36,7 +36,9 @@ public class PetHandler {
      * @return
      */
     public Mono<ServerResponse> all(ServerRequest request) {
-        return productRepository.getProducts().flatMap(this::buildResponse);
+        return ServerResponse.ok().
+                contentType(APPLICATION_JSON)
+                .body(productRepository.getProducts(), Product.class);
     }
 
     /**
@@ -60,7 +62,9 @@ public class PetHandler {
      */
     public Mono<ServerResponse> byCategory(ServerRequest request) {
         String category = request.pathVariable("category");
-        return productRepository.getProductsByCategory(category).flatMap(this::buildResponse);
+        return ServerResponse.ok().
+                contentType(APPLICATION_JSON)
+                .body(productRepository.getProductsByCategory(category), Product.class);
     }
 
     /**
@@ -91,7 +95,7 @@ public class PetHandler {
                     return productRepository.getProductById(id);
                 })
                 .flatMap(product -> productRepository.updateProduct(productRef.get()))
-                .map(product -> MSG_UPDATE_SUCCESS)
+                .map(updated -> MSG_UPDATE_SUCCESS)
                 .flatMap(this::buildResponse)
                 .switchIfEmpty(this.petNotFoundResponse());
     }
