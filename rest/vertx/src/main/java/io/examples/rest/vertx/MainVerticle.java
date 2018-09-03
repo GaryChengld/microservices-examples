@@ -41,7 +41,6 @@ public class MainVerticle extends AbstractVerticle {
                 .subscribe(id -> logger.debug("MainVerticle deployed successfully with deployment ID {}", id),
                         ex -> {
                             logger.error(ex.getLocalizedMessage());
-                            ex.printStackTrace();
                             vertx.close();
                         });
     }
@@ -50,10 +49,7 @@ public class MainVerticle extends AbstractVerticle {
     public void start(Future<Void> startFuture) {
         logger.debug("Starting main verticle...");
         this.startHttpServer(vertx, this.config().getJsonObject(KEY_SERVICE))
-                .subscribe(startFuture::complete, t-> {
-                    t.printStackTrace();
-                    startFuture.fail(t);
-                });
+                .subscribe(startFuture::complete, startFuture::fail);
     }
 
     private Completable startHttpServer(Vertx vertx, JsonObject serviceConfig) {
