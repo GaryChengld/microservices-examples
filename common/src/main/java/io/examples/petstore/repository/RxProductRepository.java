@@ -21,7 +21,7 @@ public interface RxProductRepository {
 
     Single<Product> addProduct(Product product);
 
-    Completable updateProduct(Product product);
+    Single<Boolean> updateProduct(Product product);
 
-    Completable deleteProduct(Integer id);
+    Single<Boolean> deleteProduct(Integer id);
 }

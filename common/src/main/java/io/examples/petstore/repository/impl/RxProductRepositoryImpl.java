@@ -53,18 +53,18 @@ public class RxProductRepositoryImpl implements RxProductRepository {
     }
 
     @Override
-    public Completable updateProduct(Product product) {
-        return Completable.create(emitter -> {
+    public Single<Boolean> updateProduct(Product product) {
+        return Single.create(emitter -> {
             repository.updateProduct(product);
-            emitter.onComplete();
+            emitter.onSuccess(Boolean.TRUE);
         });
     }
 
     @Override
-    public Completable deleteProduct(Integer id) {
-        return Completable.create(emitter -> {
+    public Single<Boolean> deleteProduct(Integer id) {
+        return Single.create(emitter -> {
             repository.deleteProduct(id);
-            emitter.onComplete();
+            emitter.onSuccess(Boolean.TRUE);
         });
     }
 }

@@ -1,11 +1,6 @@
 {
   "service": {
-    "name": "movieService",
+    "name": "petService",
     "port": 9080
-  },
-  "database": {
-    "url": "jdbc:hsqldb:file:/db/movieDB;shutdown=true",
-    "driver_class": "org.hsqldb.jdbcDriver",
-    "max_pool_size": 10
   }
 }
