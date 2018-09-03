@@ -2,20 +2,6 @@
 
 [Vert.x](https://vertx.io/), known as one of the leading frameworks for performance, event-driven applications. It uses asynchronous programming principles which allows it to process a large number of concurrency using a small number of kernel threads. Asynchronous programming is a style promoting the ability to write non-blocking code. The platform stays responsive under heavy and varying load and is designed to follow [Reactive Manifesto](https://www.reactivemanifesto.org/) principles.
 
-This examples implements some simple restful services as below
-
-|method|url|desc|
-|:---|:---|:---|
-|POST|http://localhost:8180/api/v1/movie/|Create a new movie record|
-|PUT|http://localhost:8180/api/v1/movie/|Update a movie record|
-|Delete|http://localhost:8180/api/v1/movie/:id|Delete a movie record|
-|GET|http://localhost:8180/api/v1/movie/:id|Get a movie record by ID|
-|GET|http://localhost:8180/api/v1/movie/imdb/:id|Get a movie record by Imdb ID|
-|GET|http://localhost:8180/api/v1/movie/search/:keyword|Search movie by keyword|
-
-```
-If runing under docker, change localhost to docker machine ip address (default 192.168.99.100 in windows)
-```
 
 ### Local 
 
@@ -39,5 +25,5 @@ mvn clean package
 
 #### Start
 ```
-docker run -p 8180:8180 examples/rest/vertx
+docker run -p 9080:9080 examples/rest/vertx
 ```

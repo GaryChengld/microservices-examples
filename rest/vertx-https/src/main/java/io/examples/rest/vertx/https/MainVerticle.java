@@ -1,5 +1,8 @@
 package io.examples.rest.vertx.https;
 
+import io.examples.petstore.repository.RxProductRepository;
+import io.examples.petstore.repository.impl.RxProductRepositoryImpl;
+import io.examples.rest.vertx.PetHandler;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;
 import io.vertx.core.http.HttpServerOptions;
@@ -20,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MainVerticle extends AbstractVerticle {
     private static final String CONFIG_FILE = "src/conf/config.json";
-    private static final String API_BASE_PATH = "/api/";
+    private static final String API_BASE_PATH = "/v1/pet";
     private static final String KEY_KEY_STORE = "keyStore";
     private static final String KEY_PATH = "path";
     private static final String KEY_PASSWORD = "password";
@@ -43,10 +46,12 @@ public class MainVerticle extends AbstractVerticle {
     @Override
     public void start(Future<Void> startFuture) {
         log.debug("Starting greeting service...");
+        RxProductRepository productRepository = new RxProductRepositoryImpl();
+        PetHandler petHandler = PetHandler.create(vertx, productRepository);
         int port = this.config().getInteger(KEY_PORT, 8443);
         JsonObject keyStoreConfig = this.config().getJsonObject(KEY_KEY_STORE);
         Router router = Router.router(vertx);
-        router.mountSubRouter(API_BASE_PATH, ApiHandler.apiHandler(vertx).router());
+        router.mountSubRouter(API_BASE_PATH, petHandler.router());
         HttpServerOptions options = new HttpServerOptions()
                 .setSsl(true)
                 .setKeyStoreOptions(new JksOptions()
@@ -56,7 +61,7 @@ public class MainVerticle extends AbstractVerticle {
                 .requestHandler(router::accept)
                 .rxListen(port)
                 .toCompletable()
-                .doOnComplete(() -> log.debug("Greeting service started on port {}", port))
+                .doOnComplete(() -> log.debug("Pet restful service started on port {}", port))
                 .subscribe(startFuture::complete, startFuture::fail);
     }
 }
