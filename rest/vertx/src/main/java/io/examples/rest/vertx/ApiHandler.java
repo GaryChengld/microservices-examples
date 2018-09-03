@@ -1,6 +1,6 @@
 package io.examples.rest.vertx;
 
-import io.examples.rest.vertx.common.ApiResponse;
+import io.examples.common.ApiResponse;
 import io.examples.rest.vertx.domain.Movie;
 import io.examples.rest.vertx.repository.MovieRepository;
 import io.reactivex.schedulers.Schedulers;

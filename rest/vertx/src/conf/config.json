@@ -1,7 +1,7 @@
 {
   "service": {
     "name": "movieService",
-    "port": 8180
+    "port": 9080
   },
   "database": {
     "url": "jdbc:hsqldb:file:/db/movieDB;shutdown=true",
