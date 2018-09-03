@@ -1,5 +1,7 @@
 package io.examples.rest.vertx.resteasy;
 
+import io.examples.petstore.repository.RxProductRepository;
+import io.examples.petstore.repository.impl.RxProductRepositoryImpl;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;
@@ -12,7 +14,7 @@ import org.slf4j.LoggerFactory;
 
 
 /**
- * Main verticle of Greeting service
+ * Main verticle of Pet service
  *
  * @author Gary Cheng
  */
@@ -41,14 +43,15 @@ public class MainVerticle extends AbstractVerticle {
         logger.debug("Starting greeting service...");
         VertxResteasyDeployment deployment = new VertxResteasyDeployment();
         deployment.start();
-        deployment.getRegistry().addSingletonResource(new GreetingResource());
+        RxProductRepository productRepository = new RxProductRepositoryImpl();
+        deployment.getRegistry().addSingletonResource(PetResource.create(productRepository));
 
         int port = this.config().getInteger(KEY_PORT, 8080);
         vertx.createHttpServer()
                 .requestHandler(new VertxRequestHandler(vertx, deployment))
                 .listen(port, ar -> {
                     if (ar.succeeded()) {
-                        logger.debug("Greeting service started on port {}", ar.result().actualPort());
+                        logger.debug("Pet service started on port {}", ar.result().actualPort());
                         startFuture.complete();
                     } else {
                         startFuture.fail(ar.cause());
