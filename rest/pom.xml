@@ -19,6 +19,7 @@
     <module>spring-boot-webflux-1</module>
     <module>spring-boot-webflux-2</module>
     <module>spring-boot-webflux-3</module>
+    <module>light4j</module>
   </modules>
 
 </project>
