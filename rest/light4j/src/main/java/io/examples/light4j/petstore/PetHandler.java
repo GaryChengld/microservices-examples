@@ -15,6 +15,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * The restful handler of PetStore service
@@ -23,6 +25,8 @@ import java.io.IOException;
  */
 public class PetHandler {
     private static final Logger logger = LoggerFactory.getLogger(PetHandler.class);
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+
     private final RxProductRepository productRepository;
 
     private PetHandler(RxProductRepository productRepository) {
@@ -57,9 +61,11 @@ public class PetHandler {
      * @param exchange
      */
     public void byId(HttpServerExchange exchange) {
-        int id = Exchange.pathParams().pathParamAsLong(exchange, "id").orElse(0L).intValue();
-        logger.debug("Received find pet by ID request, id:{}", id);
-        productRepository.getProductById(id)
+        String paraId = Exchange.pathParams().pathParam(exchange, "id").orElse("");
+        logger.debug("Received find pet by ID request, id:{}", paraId);
+        Single.just(paraId)
+                .map(Integer::valueOf)
+                .flatMapMaybe(id -> productRepository.getProductById(id))
                 .subscribe(product -> this.buildResponse(exchange, product),
                         t -> this.exceptionResponse(exchange, t),
                         () -> this.notFoundResponse(exchange));
@@ -91,6 +97,35 @@ public class PetHandler {
                 .subscribe(product -> this.buildResponse(exchange, product), t -> this.exceptionResponse(exchange, t));
     }
 
+    public void update(HttpServerExchange exchange) {
+        String paraId = Exchange.pathParams().pathParam(exchange, "id").orElse("");
+        logger.debug("Received update pet request, pet id:{}", paraId);
+        AtomicReference<Product> productRef =  new AtomicReference<>();
+        Single.just(paraId)
+                .map(Integer::valueOf)
+                .flatMapMaybe(id -> productRepository.getProductById(id))
+                .doOnSuccess(productRef::set)
+                .flatMap(p -> this.rxReceiveBody(exchange).toMaybe())
+                .map(body -> this.jsonToObject(body, Product.class))
+                .doOnSuccess(product -> product.setId(productRef.get().getId()))
+                .flatMap(product -> productRepository.updateProduct(product).toMaybe())
+                .subscribe(b -> this.buildResponse(exchange, ApiResponses.MSG_UPDATE_SUCCESS),
+                        t -> this.exceptionResponse(exchange, t),
+                        () -> this.notFoundResponse(exchange));
+    }
+
+    public void delete(HttpServerExchange exchange) {
+        String paraId = Exchange.pathParams().pathParam(exchange, "id").orElse("");
+        logger.debug("Received delete pet request, pet id:{}", paraId);
+        Single.just(paraId)
+                .map(Integer::valueOf)
+                .flatMapMaybe(id -> productRepository.getProductById(id))
+                .flatMap(p -> productRepository.deleteProduct(p.getId()).toMaybe())
+                .subscribe(b -> this.buildResponse(exchange, ApiResponses.MSG_DELETE_SUCCESS),
+                        t -> this.exceptionResponse(exchange, t),
+                        () -> this.notFoundResponse(exchange));
+    }
+
     private <T> void buildResponse(HttpServerExchange exchange, T body) {
         this.buildResponse(exchange, HttpResponseCodes.SC_OK, body);
     }
@@ -104,7 +139,7 @@ public class PetHandler {
     }
 
     private <T> void buildResponse(HttpServerExchange exchange, int statusCode, T body) {
-        ObjectWriter writer = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        ObjectWriter writer = objectMapper.writer().withDefaultPrettyPrinter();
         exchange.getResponseHeaders().add(new HttpString("Content-Type"), "application/json");
         exchange.setStatusCode(statusCode);
         try {
@@ -117,7 +152,6 @@ public class PetHandler {
 
     private <T> T jsonToObject(String json, Class<T> type) {
         logger.debug("jsonToObject, json:{}", json);
-        ObjectMapper objectMapper = new ObjectMapper();
         try {
             return objectMapper.readValue(json, type);
         } catch (IOException e) {

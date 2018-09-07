@@ -18,6 +18,8 @@ public class RoutingHandlerProvider implements HandlerProvider {
                 .get(PET_BASE_PATH + "/", petHandler::all)
                 .get(PET_BASE_PATH + "/{id}", petHandler::byId)
                 .get(PET_BASE_PATH + "/findByCategory/{category}", petHandler::byCategory)
-                .post(PET_BASE_PATH + "/", petHandler::add);
+                .post(PET_BASE_PATH + "/", petHandler::add)
+                .put(PET_BASE_PATH + "/{id}", petHandler::update)
+                .delete(PET_BASE_PATH + "/{id}", petHandler::delete);
     }
 }
