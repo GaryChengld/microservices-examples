@@ -15,8 +15,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * The restful handler of PetStore service
@@ -61,11 +59,9 @@ public class PetHandler {
      * @param exchange
      */
     public void byId(HttpServerExchange exchange) {
-        String paraId = Exchange.pathParams().pathParam(exchange, "id").orElse("");
-        logger.debug("Received find pet by ID request, id:{}", paraId);
-        Single.just(paraId)
-                .map(Integer::valueOf)
-                .flatMapMaybe(id -> productRepository.getProductById(id))
+        int id = Exchange.pathParams().pathParamAsLong(exchange, "id").orElse(0L).intValue();
+        logger.debug("Received find pet by ID request, id:{}", id);
+        productRepository.getProductById(id)
                 .subscribe(product -> this.buildResponse(exchange, product),
                         t -> this.exceptionResponse(exchange, t),
                         () -> this.notFoundResponse(exchange));
@@ -98,16 +94,12 @@ public class PetHandler {
     }
 
     public void update(HttpServerExchange exchange) {
-        String paraId = Exchange.pathParams().pathParam(exchange, "id").orElse("");
-        logger.debug("Received update pet request, pet id:{}", paraId);
-        AtomicReference<Product> productRef =  new AtomicReference<>();
-        Single.just(paraId)
-                .map(Integer::valueOf)
-                .flatMapMaybe(id -> productRepository.getProductById(id))
-                .doOnSuccess(productRef::set)
+        int id = Exchange.pathParams().pathParamAsLong(exchange, "id").orElse(0L).intValue();
+        logger.debug("Received update pet request, pet id:{}", id);
+        productRepository.getProductById(id)
                 .flatMap(p -> this.rxReceiveBody(exchange).toMaybe())
                 .map(body -> this.jsonToObject(body, Product.class))
-                .doOnSuccess(product -> product.setId(productRef.get().getId()))
+                .doOnSuccess(product -> product.setId(id))
                 .flatMap(product -> productRepository.updateProduct(product).toMaybe())
                 .subscribe(b -> this.buildResponse(exchange, ApiResponses.MSG_UPDATE_SUCCESS),
                         t -> this.exceptionResponse(exchange, t),
@@ -115,11 +107,9 @@ public class PetHandler {
     }
 
     public void delete(HttpServerExchange exchange) {
-        String paraId = Exchange.pathParams().pathParam(exchange, "id").orElse("");
-        logger.debug("Received delete pet request, pet id:{}", paraId);
-        Single.just(paraId)
-                .map(Integer::valueOf)
-                .flatMapMaybe(id -> productRepository.getProductById(id))
+        int id = Exchange.pathParams().pathParamAsLong(exchange, "id").orElse(0L).intValue();
+        logger.debug("Received delete pet request, pet id:{}", id);
+        productRepository.getProductById(id)
                 .flatMap(p -> productRepository.deleteProduct(p.getId()).toMaybe())
                 .subscribe(b -> this.buildResponse(exchange, ApiResponses.MSG_DELETE_SUCCESS),
                         t -> this.exceptionResponse(exchange, t),
