@@ -2,6 +2,7 @@ package io.examples.rest.vertx;
 
 import io.examples.petstore.repository.RxProductRepository;
 import io.examples.petstore.repository.impl.RxProductRepositoryImpl;
+import io.examples.rest.vertx.handler.PetHandler;
 import io.reactivex.Completable;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;

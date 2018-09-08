@@ -1,4 +1,4 @@
-package io.examples.rest.vertx;
+package io.examples.rest.vertx.handler;
 
 import io.examples.common.ApiResponse;
 import io.examples.petstore.ApiResponses;

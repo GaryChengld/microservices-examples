@@ -2,7 +2,7 @@ package io.examples.rest.vertx.https;
 
 import io.examples.petstore.repository.RxProductRepository;
 import io.examples.petstore.repository.impl.RxProductRepositoryImpl;
-import io.examples.rest.vertx.PetHandler;
+import io.examples.rest.vertx.handler.PetHandler;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;
 import io.vertx.core.http.HttpServerOptions;
