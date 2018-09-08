@@ -8,3 +8,4 @@
 - [spring-boot-webflux-1](spring-boot-webflux-1/) -- Reactive restful service on Spring WebFlux, annotation style with non-blocking backend
 - [spring-boot-webflux-2](spring-boot-webflux-2/) -- Reactive restful service on Spring WebFlux, annotation style with blocking backend
 - [spring-boot-webflux-3](spring-boot-webflux-3/) -- Reactive restful service on Spring WebFlux, functional style
+- [light-4j](light4j) -- Non-blocking restful service on light-4j
