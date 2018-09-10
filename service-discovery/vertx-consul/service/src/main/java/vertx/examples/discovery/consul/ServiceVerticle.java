@@ -94,7 +94,7 @@ public class ServiceVerticle extends AbstractVerticle {
     private void healthCheckHandler(RoutingContext context) {
         logger.debug("Received health check request");
         context.response()
-                .putHeader("content-type", "text/html")
-                .end("<html><body><h1>My Service is working normally!</h1></body></html>");
+                .putHeader("content-type", "text/plain")
+                .end("UP");
     }
 }

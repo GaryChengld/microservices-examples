@@ -10,3 +10,5 @@ The microservice architecture enables the continuous delivery/deployment of larg
 
 * [RESTful Web Service](rest/)
 * [Service Discovery](service-discovery/)
+* [Api Gateway](api-gateway/)
+* [Circuit Breaker](circuit-breaker/)

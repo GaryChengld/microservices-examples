@@ -2,11 +2,11 @@
   "service": {
     "name": "MyService",
     "host": "localhost",
-    "port": 8082,
+    "port": 9081,
     "root": "/",
     "metadata": {
       "checkoptions": {
-        "http": "http://localhost:8082/healthCheck",
+        "http": "http://localhost:9081/healthCheck",
         "interval": "30s",
         "deregisterAfter": "30m"
       }

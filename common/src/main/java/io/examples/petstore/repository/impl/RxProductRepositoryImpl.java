@@ -3,12 +3,11 @@ package io.examples.petstore.repository.impl;
 import io.examples.petstore.domain.Product;
 import io.examples.petstore.repository.ProductRepository;
 import io.examples.petstore.repository.RxProductRepository;
-import io.reactivex.Completable;
 import io.reactivex.Flowable;
 import io.reactivex.Maybe;
 import io.reactivex.Single;
-import java.util.Optional;
 
+import java.util.Optional;
 
 import static io.reactivex.BackpressureStrategy.DROP;
 

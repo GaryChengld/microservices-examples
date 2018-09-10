@@ -87,7 +87,7 @@ public class PetHandler {
      */
     public void add(HttpServerExchange exchange) {
         logger.debug("Received add pet request");
-        this.rxReceiveBody(exchange)
+        this.rxGetBodyAsString(exchange)
                 .map(body -> this.jsonToObject(body, Product.class))
                 .flatMap(product -> productRepository.addProduct(product))
                 .subscribe(product -> this.buildResponse(exchange, product), t -> this.exceptionResponse(exchange, t));
@@ -97,7 +97,7 @@ public class PetHandler {
         int id = Exchange.pathParams().pathParamAsLong(exchange, "id").orElse(0L).intValue();
         logger.debug("Received update pet request, pet id:{}", id);
         productRepository.getProductById(id)
-                .flatMap(p -> this.rxReceiveBody(exchange).toMaybe())
+                .flatMap(p -> this.rxGetBodyAsString(exchange).toMaybe())
                 .map(body -> this.jsonToObject(body, Product.class))
                 .doOnSuccess(product -> product.setId(id))
                 .flatMap(product -> productRepository.updateProduct(product).toMaybe())
@@ -149,7 +149,7 @@ public class PetHandler {
         }
     }
 
-    private Single<String> rxReceiveBody(HttpServerExchange exchange) {
+    private Single<String> rxGetBodyAsString(HttpServerExchange exchange) {
         return Single.create(emitter ->
                 exchange.getRequestReceiver().receiveFullString((ex, body) -> emitter.onSuccess(body)));
     }
