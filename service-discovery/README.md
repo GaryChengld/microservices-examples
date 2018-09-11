@@ -5,4 +5,4 @@
 - [vertx](vertx-core/) -- Implemented by Vert.x internal service discovery
 - [vertx consul](vertx-consul/) -- vert.x Service Discovery example using Consul as backend
 - [vertx zookeeper](vertx-zk/) -- vert.x Service Discovery example using Apache ZooKeeper as backend
-- [spring cloud eureka](spring-boot/) -- Eureka as service discovery in Spring Cloud
+- [spring cloud eureka](spring-boot-eureka/) -- Eureka as service discovery in Spring Cloud
