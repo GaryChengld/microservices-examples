@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
+ * Product Repository
+ *
  * @author Gary Cheng
  */
 public interface ProductRepository {

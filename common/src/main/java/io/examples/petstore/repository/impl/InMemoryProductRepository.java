@@ -10,6 +10,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
+/**
+ * Implement Product repository in memory
+ *
+ * @author Gary Cheng
+ */
 public class InMemoryProductRepository implements ProductRepository {
 
     private final AtomicInteger idGenerator = new AtomicInteger(0);

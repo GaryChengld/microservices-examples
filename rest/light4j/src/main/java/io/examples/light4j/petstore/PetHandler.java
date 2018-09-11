@@ -3,6 +3,7 @@ package io.examples.light4j.petstore;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.networknt.config.Config;
 import com.networknt.handler.util.Exchange;
 import io.examples.common.ApiResponse;
 import io.examples.petstore.ApiResponses;
@@ -11,10 +12,9 @@ import io.examples.petstore.repository.RxProductRepository;
 import io.reactivex.Single;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.util.HttpString;
+import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
 
 /**
  * The restful handler of PetStore service
@@ -23,7 +23,7 @@ import java.io.IOException;
  */
 public class PetHandler {
     private static final Logger logger = LoggerFactory.getLogger(PetHandler.class);
-    private static final ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = Config.getInstance().getMapper();
 
     private final RxProductRepository productRepository;
 
@@ -34,8 +34,8 @@ public class PetHandler {
     /**
      * Create a PetHandler instance
      *
-     * @param productRepository
-     * @return
+     * @param productRepository the productRepository
+     * @return the PetHandler instance
      */
     public static PetHandler create(RxProductRepository productRepository) {
         return new PetHandler(productRepository);
@@ -44,19 +44,20 @@ public class PetHandler {
     /**
      * Get all pets
      *
-     * @param exchange
+     * @param exchange the HttpServerExchange
      */
     public void all(HttpServerExchange exchange) {
         logger.debug("Received all pets request");
         productRepository.getProducts()
                 .toList()
-                .subscribe(products -> this.buildResponse(exchange, products));
+                .subscribe(products -> this.buildResponse(exchange, products))
+                .dispose();
     }
 
     /**
      * Find pet by ID
      *
-     * @param exchange
+     * @param exchange the HttpServerExchange
      */
     public void byId(HttpServerExchange exchange) {
         int id = Exchange.pathParams().pathParamAsLong(exchange, "id").orElse(0L).intValue();
@@ -64,33 +65,38 @@ public class PetHandler {
         productRepository.getProductById(id)
                 .subscribe(product -> this.buildResponse(exchange, product),
                         t -> this.exceptionResponse(exchange, t),
-                        () -> this.notFoundResponse(exchange));
+                        () -> this.notFoundResponse(exchange))
+                .dispose();
     }
 
     /**
      * Find pets by category
      *
-     * @param exchange
+     * @param exchange the HttpServerExchange
      */
     public void byCategory(HttpServerExchange exchange) {
-        String category = Exchange.pathParams().pathParam(exchange, "category").get();
-        logger.debug("Received find pet by Category request, category:{}", category);
-        productRepository.getProductsByCategory(category)
-                .toList()
-                .subscribe(products -> this.buildResponse(exchange, products));
+        Exchange.pathParams().pathParam(exchange, "category").ifPresent(category -> {
+            logger.debug("Received find pet by Category request, category:{}", category);
+            productRepository.getProductsByCategory(category)
+                    .toList()
+                    .subscribe(products -> this.buildResponse(exchange, products))
+                    .dispose();
+        });
+
     }
 
     /**
      * Add a new pet
      *
-     * @param exchange
+     * @param exchange the HttpServerExchange
      */
     public void add(HttpServerExchange exchange) {
         logger.debug("Received add pet request");
         this.rxGetBodyAsString(exchange)
                 .map(body -> this.jsonToObject(body, Product.class))
-                .flatMap(product -> productRepository.addProduct(product))
-                .subscribe(product -> this.buildResponse(exchange, product), t -> this.exceptionResponse(exchange, t));
+                .flatMap(productRepository::addProduct)
+                .subscribe(product -> this.buildResponse(exchange, product), t -> this.exceptionResponse(exchange, t))
+                .dispose();
     }
 
     public void update(HttpServerExchange exchange) {
@@ -103,7 +109,8 @@ public class PetHandler {
                 .flatMap(product -> productRepository.updateProduct(product).toMaybe())
                 .subscribe(b -> this.buildResponse(exchange, ApiResponses.MSG_UPDATE_SUCCESS),
                         t -> this.exceptionResponse(exchange, t),
-                        () -> this.notFoundResponse(exchange));
+                        () -> this.notFoundResponse(exchange))
+                .dispose();
     }
 
     public void delete(HttpServerExchange exchange) {
@@ -113,7 +120,8 @@ public class PetHandler {
                 .flatMap(p -> productRepository.deleteProduct(p.getId()).toMaybe())
                 .subscribe(b -> this.buildResponse(exchange, ApiResponses.MSG_DELETE_SUCCESS),
                         t -> this.exceptionResponse(exchange, t),
-                        () -> this.notFoundResponse(exchange));
+                        () -> this.notFoundResponse(exchange))
+                .dispose();
     }
 
     private <T> void buildResponse(HttpServerExchange exchange, T body) {
