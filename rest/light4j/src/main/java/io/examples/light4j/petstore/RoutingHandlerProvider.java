@@ -1,8 +1,8 @@
 package io.examples.light4j.petstore;
 
 import com.networknt.handler.HandlerProvider;
-import io.examples.petstore.repository.RxProductRepository;
-import io.examples.petstore.repository.impl.RxProductRepositoryImpl;
+import io.examples.store.repository.RxProductRepository;
+import io.examples.store.repository.impl.RxProductRepositoryImpl;
 import io.undertow.Handlers;
 import io.undertow.server.HttpHandler;
 

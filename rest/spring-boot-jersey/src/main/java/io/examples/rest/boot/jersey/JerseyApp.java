@@ -1,6 +1,6 @@
 package io.examples.rest.boot.jersey;
 
-import io.examples.petstore.repository.ProductRepository;
+import io.examples.store.repository.ProductRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package io.examples.petstore.domain;
+package io.examples.store.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

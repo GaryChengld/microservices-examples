@@ -1,7 +1,7 @@
-package io.examples.petstore.repository.impl;
+package io.examples.store.repository.impl;
 
-import io.examples.petstore.domain.Product;
-import io.examples.petstore.repository.ProductRepository;
+import io.examples.store.domain.Product;
+import io.examples.store.repository.ProductRepository;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;

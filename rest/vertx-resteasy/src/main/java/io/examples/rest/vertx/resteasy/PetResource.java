@@ -1,9 +1,9 @@
 package io.examples.rest.vertx.resteasy;
 
 import io.examples.common.ApiResponse;
-import io.examples.petstore.ApiResponses;
-import io.examples.petstore.domain.Product;
-import io.examples.petstore.repository.RxProductRepository;
+import io.examples.store.ApiResponses;
+import io.examples.store.domain.Product;
+import io.examples.store.repository.RxProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,8 +13,8 @@ import javax.ws.rs.container.Suspended;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import static io.examples.petstore.ApiResponses.MSG_DELETE_SUCCESS;
-import static io.examples.petstore.ApiResponses.MSG_UPDATE_SUCCESS;
+import static io.examples.store.ApiResponses.MSG_DELETE_SUCCESS;
+import static io.examples.store.ApiResponses.MSG_UPDATE_SUCCESS;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 import static javax.ws.rs.core.Response.Status.OK;
 

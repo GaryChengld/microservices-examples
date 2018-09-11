@@ -1,6 +1,6 @@
-package io.examples.petstore.repository;
+package io.examples.store.repository;
 
-import io.examples.petstore.domain.Product;
+import io.examples.store.domain.Product;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

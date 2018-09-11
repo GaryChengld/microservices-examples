@@ -1,9 +1,9 @@
 package io.examples.rest.boot;
 
 import io.examples.common.ApiResponse;
-import io.examples.petstore.ApiResponses;
-import io.examples.petstore.domain.Product;
-import io.examples.petstore.repository.ProductRepository;
+import io.examples.store.ApiResponses;
+import io.examples.store.domain.Product;
+import io.examples.store.repository.ProductRepository;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

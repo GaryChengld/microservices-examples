@@ -1,8 +1,8 @@
 package io.examples.rest.boot;
 
-import io.examples.petstore.ApiResponses;
-import io.examples.petstore.domain.Product;
-import io.examples.petstore.repository.FluxProductRepository;
+import io.examples.store.ApiResponses;
+import io.examples.store.domain.Product;
+import io.examples.store.repository.FluxProductRepository;
 import java.util.concurrent.atomic.AtomicReference;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.reactive.function.server.ServerRequest;
@@ -10,8 +10,8 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
 
-import static io.examples.petstore.ApiResponses.MSG_DELETE_SUCCESS;
-import static io.examples.petstore.ApiResponses.MSG_UPDATE_SUCCESS;
+import static io.examples.store.ApiResponses.MSG_DELETE_SUCCESS;
+import static io.examples.store.ApiResponses.MSG_UPDATE_SUCCESS;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.web.reactive.function.BodyInserters.fromObject;

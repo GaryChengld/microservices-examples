@@ -1,7 +1,7 @@
-package io.examples.petstore.repository;
+package io.examples.store.repository;
 
-import io.examples.petstore.domain.Product;
-import io.examples.petstore.repository.impl.InMemoryProductRepository;
+import io.examples.store.domain.Product;
+import io.examples.store.repository.impl.InMemoryProductRepository;
 import java.util.List;
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package io.examples.petstore;
+package io.examples.store;
 
 import io.examples.common.ApiResponse;
 

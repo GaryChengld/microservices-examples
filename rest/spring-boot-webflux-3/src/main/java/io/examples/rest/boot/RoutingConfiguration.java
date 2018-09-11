@@ -1,7 +1,7 @@
 package io.examples.rest.boot;
 
-import io.examples.petstore.repository.FluxProductRepository;
-import io.examples.petstore.repository.impl.FluxProductRepositoryImpl;
+import io.examples.store.repository.FluxProductRepository;
+import io.examples.store.repository.impl.FluxProductRepositoryImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.RouterFunction;

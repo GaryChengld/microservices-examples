@@ -1,8 +1,8 @@
-package io.examples.petstore.repository.impl;
+package io.examples.store.repository.impl;
 
-import io.examples.petstore.domain.Product;
-import io.examples.petstore.repository.FluxProductRepository;
-import io.examples.petstore.repository.ProductRepository;
+import io.examples.store.domain.Product;
+import io.examples.store.repository.FluxProductRepository;
+import io.examples.store.repository.ProductRepository;
 import java.util.Optional;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

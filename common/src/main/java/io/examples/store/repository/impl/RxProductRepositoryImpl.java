@@ -1,8 +1,8 @@
-package io.examples.petstore.repository.impl;
+package io.examples.store.repository.impl;
 
-import io.examples.petstore.domain.Product;
-import io.examples.petstore.repository.ProductRepository;
-import io.examples.petstore.repository.RxProductRepository;
+import io.examples.store.domain.Product;
+import io.examples.store.repository.ProductRepository;
+import io.examples.store.repository.RxProductRepository;
 import io.reactivex.Flowable;
 import io.reactivex.Maybe;
 import io.reactivex.Single;

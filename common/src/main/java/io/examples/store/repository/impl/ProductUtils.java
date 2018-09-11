@@ -1,6 +1,6 @@
-package io.examples.petstore.repository.impl;
+package io.examples.store.repository.impl;
 
-import io.examples.petstore.domain.Product;
+import io.examples.store.domain.Product;
 import java.util.Collection;
 import java.util.HashSet;
 

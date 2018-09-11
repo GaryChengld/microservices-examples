@@ -1,9 +1,9 @@
 package io.examples.rest.boot;
 
 import io.examples.common.ApiResponse;
-import io.examples.petstore.ApiResponses;
-import io.examples.petstore.domain.Product;
-import io.examples.petstore.repository.FluxProductRepository;
+import io.examples.store.ApiResponses;
+import io.examples.store.domain.Product;
+import io.examples.store.repository.FluxProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

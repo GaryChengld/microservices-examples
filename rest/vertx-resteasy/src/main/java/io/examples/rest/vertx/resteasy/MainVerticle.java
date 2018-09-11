@@ -1,7 +1,7 @@
 package io.examples.rest.vertx.resteasy;
 
-import io.examples.petstore.repository.RxProductRepository;
-import io.examples.petstore.repository.impl.RxProductRepositoryImpl;
+import io.examples.store.repository.RxProductRepository;
+import io.examples.store.repository.impl.RxProductRepositoryImpl;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;

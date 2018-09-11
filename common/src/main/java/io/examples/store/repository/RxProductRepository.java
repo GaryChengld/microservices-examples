@@ -1,7 +1,6 @@
-package io.examples.petstore.repository;
+package io.examples.store.repository;
 
-import io.examples.petstore.domain.Product;
-import io.reactivex.Completable;
+import io.examples.store.domain.Product;
 import io.reactivex.Flowable;
 import io.reactivex.Maybe;
 import io.reactivex.Single;
