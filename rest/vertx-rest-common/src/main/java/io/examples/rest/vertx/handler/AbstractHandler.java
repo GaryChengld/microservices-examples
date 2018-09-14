@@ -15,7 +15,7 @@ import static io.examples.rest.vertx.common.HttpResponseCodes.SC_OK;
  * @author Gary Cheng
  */
 public class AbstractHandler {
-    <T> void buildResponse(RoutingContext context, T body) {
+    public <T> void buildResponse(RoutingContext context, T body) {
         String jsonString;
         if (body instanceof JsonObject) {
             jsonString = ((JsonObject) body).encode();
@@ -30,7 +30,7 @@ public class AbstractHandler {
                 .end(jsonString);
     }
 
-    void exceptionResponse(RoutingContext context, Throwable throwable) {
+    public void exceptionResponse(RoutingContext context, Throwable throwable) {
         context.response()
                 .setStatusCode(SC_INTERNAL_SERVER_ERROR)
                 .putHeader("Content-Type", "application/json")

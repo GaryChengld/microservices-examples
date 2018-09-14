@@ -9,10 +9,10 @@
     <artifactId>api-gateway-vertx</artifactId>
     <version>0.1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>api-gateway-vertx-gateway</artifactId>
+  <artifactId>api-gateway-vertx-review-service</artifactId>
 
   <properties>
-    <main.class>io.examples.apigateway.vertx.gateway.ApiGatewayVerticle</main.class>
+    <main.class>io.examples.apigateway.vertx.service.ReviewServiceVerticle</main.class>
   </properties>
 
   <build>
