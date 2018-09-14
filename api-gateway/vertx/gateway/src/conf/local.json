@@ -1,0 +1,5 @@
+{
+  "port": 9080,
+  "host": "localhost",
+  "ServiceName": "gatewayService"
+}

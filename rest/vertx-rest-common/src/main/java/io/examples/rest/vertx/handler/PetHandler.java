@@ -1,6 +1,5 @@
 package io.examples.rest.vertx.handler;
 
-import io.examples.common.ApiResponse;
 import io.examples.store.ApiResponses;
 import io.examples.store.domain.Product;
 import io.examples.store.repository.RxProductRepository;
@@ -12,12 +11,13 @@ import io.vertx.reactivex.ext.web.RoutingContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static io.examples.rest.vertx.common.HttpResponseCodes.*;
+
+import static io.examples.rest.vertx.common.HttpResponseCodes.SC_NOT_FOUND;
 
 /**
  * @author Gary Cheng
  */
-public class PetHandler {
+public class PetHandler extends AbstractHandler {
     private static final Logger logger = LoggerFactory.getLogger(PetHandler.class);
     private Router router;
 
@@ -125,32 +125,10 @@ public class PetHandler {
     }
 
 
-    private <T> void buildResponse(RoutingContext context, T body) {
-        String jsonString;
-        if (body instanceof JsonObject) {
-            jsonString = ((JsonObject) body).encode();
-        } else if (body instanceof JsonArray) {
-            jsonString = ((JsonArray) body).encode();
-        } else {
-            jsonString = JsonObject.mapFrom(body).encode();
-        }
-        context.response()
-                .setStatusCode(SC_OK)
-                .putHeader("Content-Type", "application/json")
-                .end(jsonString);
-    }
-
     private void petNotFoundResponse(RoutingContext context) {
         context.response()
                 .setStatusCode(SC_NOT_FOUND)
                 .putHeader("Content-Type", "application/json")
                 .end(JsonObject.mapFrom(ApiResponses.ERR_PET_NOT_FOUND).encode());
-    }
-
-    private void exceptionResponse(RoutingContext context, Throwable throwable) {
-        context.response()
-                .setStatusCode(SC_INTERNAL_SERVER_ERROR)
-                .putHeader("Content-Type", "application/json")
-                .end(JsonObject.mapFrom(ApiResponse.error(99, throwable.getLocalizedMessage())).encode());
     }
 }
