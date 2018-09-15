@@ -6,8 +6,8 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.reactivex.ext.web.RoutingContext;
 
 
-import static io.examples.rest.vertx.common.HttpResponseCodes.SC_INTERNAL_SERVER_ERROR;
-import static io.examples.rest.vertx.common.HttpResponseCodes.SC_OK;
+import static io.examples.common.HttpResponseCodes.SC_INTERNAL_SERVER_ERROR;
+import static io.examples.common.HttpResponseCodes.SC_OK;
 
 /**
  * Abstract Vert.x restful request handler

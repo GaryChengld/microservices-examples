@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-import static io.examples.rest.vertx.common.HttpResponseCodes.SC_NOT_FOUND;
+import static io.examples.common.HttpResponseCodes.SC_NOT_FOUND;
 
 /**
  * Vert.x review restful request handler
