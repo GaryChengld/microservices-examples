@@ -1,6 +1,6 @@
 package io.examples.apigateway.vertx.gateway;
 
-import io.examples.rest.vertx.handler.AbstractHandler;
+import io.examples.vertx.handler.AbstractHandler;
 import io.reactivex.Completable;
 import io.reactivex.Single;
 import io.vertx.core.json.JsonObject;

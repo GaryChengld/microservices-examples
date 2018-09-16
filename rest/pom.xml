@@ -10,7 +10,6 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>vertx-rest-common</module>
     <module>vertx</module>
     <module>vertx-https</module>
     <module>vertx-resteasy</module>

@@ -1,7 +1,7 @@
 package io.examples.apigateway.vertx.service;
 
-import io.examples.rest.vertx.handler.PetHandler;
 import io.examples.store.repository.impl.RxProductRepositoryImpl;
+import io.examples.vertx.handler.PetHandler;
 import io.reactivex.Single;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;
@@ -17,11 +17,11 @@ import io.vertx.reactivex.ext.web.handler.CorsHandler;
 import io.vertx.reactivex.servicediscovery.ServiceDiscovery;
 import io.vertx.reactivex.servicediscovery.types.HttpEndpoint;
 import io.vertx.servicediscovery.Record;
-import java.util.HashSet;
-import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashSet;
+import java.util.Set;
 
 import static io.examples.common.HttpResponseCodes.SC_SERVICE_UNAVAILABLE;
 

@@ -27,7 +27,7 @@
     </dependency>
     <dependency>
       <groupId>io.examples</groupId>
-      <artifactId>vertx-rest-common</artifactId>
+      <artifactId>vertx-common</artifactId>
       <version>0.1.0-SNAPSHOT</version>
     </dependency>
     <dependency>

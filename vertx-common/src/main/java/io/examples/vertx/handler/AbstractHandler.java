@@ -1,4 +1,4 @@
-package io.examples.rest.vertx.handler;
+package io.examples.vertx.handler;
 
 import io.examples.common.ApiResponse;
 import io.vertx.core.json.JsonArray;

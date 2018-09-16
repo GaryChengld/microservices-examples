@@ -1,4 +1,4 @@
-package io.examples.rest.vertx.handler;
+package io.examples.vertx.handler;
 
 import io.examples.store.ApiResponses;
 import io.examples.store.domain.Product;
@@ -15,6 +15,8 @@ import org.slf4j.LoggerFactory;
 import static io.examples.common.HttpResponseCodes.SC_NOT_FOUND;
 
 /**
+ * Route handler for pet service
+ *
  * @author Gary Cheng
  */
 public class PetHandler extends AbstractHandler {

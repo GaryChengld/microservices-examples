@@ -1,4 +1,4 @@
-package io.examples.rest.vertx.handler;
+package io.examples.vertx.handler;
 
 import io.examples.review.domain.Review;
 import io.examples.review.repository.RxReviewRepository;
@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import static io.examples.common.HttpResponseCodes.SC_NOT_FOUND;
 
 /**
- * Vert.x review restful request handler
+ * Vert.x review request handler
  *
  * @author Gary Cheng
  */
