@@ -1,4 +1,4 @@
-package io.examples.rest.vertx.common;
+package io.examples.vertx.common;
 
 /**
  * Keys be used in config file

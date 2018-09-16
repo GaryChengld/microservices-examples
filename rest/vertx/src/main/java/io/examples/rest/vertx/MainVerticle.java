@@ -18,17 +18,17 @@ import io.vertx.reactivex.ext.web.handler.LoggerHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static io.examples.rest.vertx.common.ConfigKeys.KEY_PORT;
-import static io.examples.rest.vertx.common.ConfigKeys.KEY_SERVICE;
+import static io.examples.common.HttpResponseCodes.SC_SERVICE_UNAVAILABLE;
+import static io.examples.vertx.common.ConfigKeys.KEY_PORT;
+import static io.examples.vertx.common.ConfigKeys.KEY_SERVICE;
 
 /**
- * Main verticle of Movie service
+ * Main verticle of Pet service
  *
  * @author Gary Cheng
  */
 public class MainVerticle extends AbstractVerticle {
     private static final Logger logger = LoggerFactory.getLogger(MainVerticle.class);
-    private static final int SC_SERVICE_UNAVAILABLE = 503;
     private static final String CONFIG_FILE = "src/conf/config.json";
     private static final String API_BASE_PATH = "/v1/pet";
 
