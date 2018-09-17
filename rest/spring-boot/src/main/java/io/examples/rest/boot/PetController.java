@@ -1,7 +1,7 @@
 package io.examples.rest.boot;
 
 import io.examples.common.ApiResponse;
-import io.examples.store.ApiResponses;
+import io.examples.common.ApiResponses;
 import io.examples.store.domain.Product;
 import io.examples.store.repository.ProductRepository;
 import java.util.List;

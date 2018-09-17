@@ -1,6 +1,6 @@
 package io.examples.rest.boot;
 
-import io.examples.store.ApiResponses;
+import io.examples.common.ApiResponses;
 import io.examples.store.domain.Product;
 import io.examples.store.repository.FluxProductRepository;
 import java.util.concurrent.atomic.AtomicReference;
@@ -10,8 +10,8 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
 
-import static io.examples.store.ApiResponses.MSG_DELETE_SUCCESS;
-import static io.examples.store.ApiResponses.MSG_UPDATE_SUCCESS;
+import static io.examples.common.ApiResponses.MSG_DELETE_SUCCESS;
+import static io.examples.common.ApiResponses.MSG_UPDATE_SUCCESS;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.web.reactive.function.BodyInserters.fromObject;

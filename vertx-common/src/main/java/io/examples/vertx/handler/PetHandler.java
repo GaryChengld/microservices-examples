@@ -1,6 +1,6 @@
 package io.examples.vertx.handler;
 
-import io.examples.store.ApiResponses;
+import io.examples.common.ApiResponses;
 import io.examples.store.domain.Product;
 import io.examples.store.repository.RxProductRepository;
 import io.vertx.core.json.JsonArray;

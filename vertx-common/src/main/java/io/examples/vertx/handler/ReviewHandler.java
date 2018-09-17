@@ -2,7 +2,7 @@ package io.examples.vertx.handler;
 
 import io.examples.review.domain.Review;
 import io.examples.review.repository.RxReviewRepository;
-import io.examples.store.ApiResponses;
+import io.examples.common.ApiResponses;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.vertx.reactivex.core.Vertx;
@@ -12,6 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
+import static io.examples.common.ApiResponses.MSG_DELETE_REVIEW_SUCCESS;
+import static io.examples.common.ApiResponses.MSG_UPDATE_REVIEW_SUCCESS;
 import static io.examples.common.HttpResponseCodes.SC_NOT_FOUND;
 
 /**
@@ -95,7 +97,7 @@ public class ReviewHandler extends AbstractHandler {
                 review.setId(id);
                 repository.getReviewById(id)
                         .flatMap(r -> repository.updateReview(review).toMaybe())
-                        .subscribe(b -> this.buildResponse(context, ApiResponses.MSG_UPDATE_SUCCESS),
+                        .subscribe(b -> this.buildResponse(context, MSG_UPDATE_REVIEW_SUCCESS),
                                 t -> this.exceptionResponse(context, t),
                                 () -> this.notFoundResponse(context));
 
@@ -112,7 +114,7 @@ public class ReviewHandler extends AbstractHandler {
             Integer id = Integer.valueOf(context.request().getParam("id"));
             repository.getReviewById(id)
                     .flatMap(r -> repository.deleteReview(id).toMaybe())
-                    .subscribe(b -> this.buildResponse(context, ApiResponses.MSG_UPDATE_SUCCESS),
+                    .subscribe(b -> this.buildResponse(context, MSG_DELETE_REVIEW_SUCCESS),
                             t -> this.exceptionResponse(context, t),
                             () -> this.notFoundResponse(context));
         } catch (NumberFormatException e) {

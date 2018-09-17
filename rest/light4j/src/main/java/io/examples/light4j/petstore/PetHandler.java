@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.networknt.config.Config;
 import com.networknt.handler.util.Exchange;
 import io.examples.common.ApiResponse;
-import io.examples.store.ApiResponses;
+import io.examples.common.ApiResponses;
 import io.examples.store.domain.Product;
 import io.examples.store.repository.RxProductRepository;
 import io.reactivex.Single;
