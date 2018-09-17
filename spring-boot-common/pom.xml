@@ -6,10 +6,17 @@
 
   <parent>
     <groupId>io.examples</groupId>
-    <artifactId>vertx-parent</artifactId>
+    <artifactId>spring-boot-parent</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <relativePath>../spring-boot-parent</relativePath>
   </parent>
   <artifactId>spring-boot-common</artifactId>
-  
+  <packaging>jar</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-webflux</artifactId>
+    </dependency>
+  </dependencies>
 </project>
