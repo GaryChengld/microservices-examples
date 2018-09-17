@@ -2,7 +2,6 @@ package io.examples.light4j.petstore;
 
 import com.networknt.handler.HandlerProvider;
 import io.examples.store.repository.RxProductRepository;
-import io.examples.store.repository.impl.RxProductRepositoryImpl;
 import io.undertow.Handlers;
 import io.undertow.server.HttpHandler;
 
@@ -11,8 +10,7 @@ public class RoutingHandlerProvider implements HandlerProvider {
 
     @Override
     public HttpHandler getHandler() {
-        RxProductRepository productRepository = new RxProductRepositoryImpl();
-        PetHandler petHandler = PetHandler.create(productRepository);
+        PetHandler petHandler = PetHandler.create(RxProductRepository.getInstance());
 
         return Handlers.routing()
                 .get(PET_BASE_PATH + "/", petHandler::all)

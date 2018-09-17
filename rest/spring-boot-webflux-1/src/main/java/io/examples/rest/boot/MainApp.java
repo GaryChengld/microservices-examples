@@ -1,7 +1,6 @@
 package io.examples.rest.boot;
 
 import io.examples.store.repository.FluxProductRepository;
-import io.examples.store.repository.impl.FluxProductRepositoryImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -22,6 +21,6 @@ public class MainApp {
 
     @Bean
     FluxProductRepository productRepository() {
-        return new FluxProductRepositoryImpl();
+        return FluxProductRepository.getInstance();
     }
 }

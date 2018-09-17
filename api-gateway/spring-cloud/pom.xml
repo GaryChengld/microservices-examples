@@ -10,24 +10,19 @@
     <version>0.1.0-SNAPSHOT</version>
     <relativePath>../../spring-boot-parent</relativePath>
   </parent>
-  <groupId>io.examples</groupId>
-  <artifactId>rest-boot-webflux-2</artifactId>
-  <packaging>jar</packaging>
+  <artifactId>api-gateway-boot</artifactId>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>pet-service</module>
+    <module>review-service</module>
+  </modules>
 
   <dependencies>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-webflux</artifactId>
+      <groupId>io.examples</groupId>
+      <artifactId>spring-boot-common</artifactId>
+      <version>0.1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
-
 </project>

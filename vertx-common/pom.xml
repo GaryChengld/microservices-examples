@@ -11,5 +11,5 @@
     <relativePath>../vertx-parent</relativePath>
   </parent>
   <artifactId>vertx-common</artifactId>
-  
+  <packaging>jar</packaging>
 </project>

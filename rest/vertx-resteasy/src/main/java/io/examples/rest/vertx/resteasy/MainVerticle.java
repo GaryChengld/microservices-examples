@@ -1,7 +1,6 @@
 package io.examples.rest.vertx.resteasy;
 
 import io.examples.store.repository.RxProductRepository;
-import io.examples.store.repository.impl.RxProductRepositoryImpl;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;
@@ -43,8 +42,7 @@ public class MainVerticle extends AbstractVerticle {
         logger.debug("Starting greeting service...");
         VertxResteasyDeployment deployment = new VertxResteasyDeployment();
         deployment.start();
-        RxProductRepository productRepository = new RxProductRepositoryImpl();
-        deployment.getRegistry().addSingletonResource(PetResource.create(productRepository));
+        deployment.getRegistry().addSingletonResource(PetResource.create(RxProductRepository.getInstance()));
 
         int port = this.config().getInteger(KEY_PORT, 8080);
         vertx.createHttpServer()

@@ -11,6 +11,7 @@
 
   <modules>
     <module>vertx</module>
+    <module>spring-cloud</module>
   </modules>
 
 </project>

@@ -1,4 +1,4 @@
-package io.examples.rest.boot;
+package io.examples.apigateway.boot.Service;
 
 import io.examples.boot.handler.PetHandler;
 import io.examples.store.repository.FluxProductRepository;
@@ -21,7 +21,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.n
  */
 @SpringBootApplication
 @Configuration
-public class MainApp {
+public class PetService {
 
     @Bean
     public PetHandler petHandler() {
@@ -34,6 +34,6 @@ public class MainApp {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(MainApp.class, args);
+        SpringApplication.run(PetService.class, args);
     }
 }

@@ -1,7 +1,6 @@
 package io.examples.rest.vertx;
 
 import io.examples.store.repository.RxProductRepository;
-import io.examples.store.repository.impl.RxProductRepositoryImpl;
 import io.examples.vertx.handler.PetHandler;
 import io.reactivex.Completable;
 import io.vertx.core.DeploymentOptions;
@@ -17,6 +16,7 @@ import io.vertx.reactivex.ext.web.Router;
 import io.vertx.reactivex.ext.web.handler.LoggerHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 
 import static io.examples.common.HttpResponseCodes.SC_SERVICE_UNAVAILABLE;
 import static io.examples.vertx.common.ConfigKeys.KEY_PORT;
@@ -55,10 +55,9 @@ public class MainVerticle extends AbstractVerticle {
 
     private Completable startHttpServer(Vertx vertx, JsonObject serviceConfig) {
         logger.debug("Starting Pet restful service...");
-        RxProductRepository productRepository = new RxProductRepositoryImpl();
         int port = serviceConfig.getInteger(KEY_PORT, 8080);
         LoggerHandler loggerHandler = LoggerHandler.create();
-        PetHandler petHandler = PetHandler.create(vertx, productRepository);
+        PetHandler petHandler = PetHandler.create(vertx, RxProductRepository.getInstance());
         Router router = Router.router(vertx);
         router.route().handler(loggerHandler);
         router.mountSubRouter(API_BASE_PATH, petHandler.router());

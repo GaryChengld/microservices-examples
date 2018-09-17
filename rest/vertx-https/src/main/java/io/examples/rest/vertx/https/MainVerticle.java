@@ -1,7 +1,6 @@
 package io.examples.rest.vertx.https;
 
 import io.examples.store.repository.RxProductRepository;
-import io.examples.store.repository.impl.RxProductRepositoryImpl;
 import io.examples.vertx.handler.PetHandler;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;
@@ -46,8 +45,7 @@ public class MainVerticle extends AbstractVerticle {
     @Override
     public void start(Future<Void> startFuture) {
         log.debug("Starting greeting service...");
-        RxProductRepository productRepository = new RxProductRepositoryImpl();
-        PetHandler petHandler = PetHandler.create(vertx, productRepository);
+        PetHandler petHandler = PetHandler.create(vertx, RxProductRepository.getInstance());
         int port = this.config().getInteger(KEY_PORT, 8443);
         JsonObject keyStoreConfig = this.config().getJsonObject(KEY_KEY_STORE);
         Router router = Router.router(vertx);
