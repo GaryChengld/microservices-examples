@@ -17,6 +17,7 @@
     <module>eureka-server</module>
     <module>pet-service</module>
     <module>review-service</module>
+    <module>zuul-gateway</module>
   </modules>
 
   <dependencyManagement>
