@@ -4,6 +4,7 @@ import io.examples.boot.handler.PetHandler;
 import io.examples.store.repository.FluxProductRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.RouterFunction;
@@ -15,12 +16,13 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.n
 
 
 /**
- * Main Application
+ * Pet Service Application
  *
  * @author Gary Cheng
  */
-@SpringBootApplication
 @Configuration
+@SpringBootApplication
+@EnableEurekaClient
 public class PetService {
 
     @Bean
