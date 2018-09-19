@@ -144,8 +144,8 @@ public class ServiceAVerticle extends AbstractVerticle {
         return new JsonObject().put("ServiceC result", throwable.getLocalizedMessage());
     }
 
-    private Single<JsonObject> callService(String serviceName, String uri) {
-        return HttpEndpoint.rxGetWebClient(discovery, new JsonObject().put(KEY_NAME, serviceName))
+    private Single<JsonObject> callService(String service, String uri) {
+        return HttpEndpoint.rxGetWebClient(discovery, new JsonObject().put(KEY_NAME, service))
                 .flatMap(webClient -> webClient.request(HttpMethod.GET, uri).rxSend())
                 .map(HttpResponse::bodyAsJsonObject);
     }
