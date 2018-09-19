@@ -58,7 +58,7 @@ public class ServiceBVerticle extends AbstractVerticle {
                 .map(HttpServerRequest::pause)
                 .onBackpressureDrop(req -> req.response().setStatusCode(SC_SERVICE_UNAVAILABLE).end())
                 .subscribe(req -> {
-                    logger.debug("Received HTTP request");
+                    logger.debug("Service B received a HTTP request");
                     req.resume();
                     router.accept(req);
                 });

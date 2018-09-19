@@ -29,19 +29,19 @@ public class ServiceCVerticle extends AbstractVerticle {
     private static final String KEY_SERVICE = "service";
     private static final String KEY_HOST = "host";
     private static final String KEY_PORT = "port";
-    private static final String SERVICE_C_PATH = "/serviceB/";
+    private static final String SERVICE_C_PATH = "/serviceC/";
     private ServiceDiscovery discovery;
     private Record publishedRecord;
 
     // Convenience method so you can run it in IDE
     public static void main(String[] args) {
         JsonObject jsonObject = new JsonObject();
-        jsonObject.put(KEY_SERVICE, "ServiceB");
+        jsonObject.put(KEY_SERVICE, "ServiceC");
         jsonObject.put(KEY_HOST, "localhost");
         jsonObject.put(KEY_PORT, 9082);
         Vertx.rxClusteredVertx(new VertxOptions().setClustered(true))
                 .flatMap(vertx -> vertx.rxDeployVerticle(ServiceCVerticle.class.getName(), new DeploymentOptions().setConfig(jsonObject)))
-                .subscribe(id -> logger.debug("Service B Verticle deployed successfully with deployment ID {}", id),
+                .subscribe(id -> logger.debug("Service C Verticle deployed successfully with deployment ID {}", id),
                         t -> logger.error(t.getLocalizedMessage()));
     }
 
@@ -57,7 +57,7 @@ public class ServiceCVerticle extends AbstractVerticle {
                 .map(HttpServerRequest::pause)
                 .onBackpressureDrop(req -> req.response().setStatusCode(SC_SERVICE_UNAVAILABLE).end())
                 .subscribe(req -> {
-                    logger.debug("Received HTTP request");
+                    logger.debug("Service C received a HTTP request");
                     req.resume();
                     router.accept(req);
                 });
