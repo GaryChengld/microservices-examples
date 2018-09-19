@@ -1,0 +1,5 @@
+{
+  "service": "pet",
+  "host": "localhost",
+  "port": 9081
+}

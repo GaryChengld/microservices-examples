@@ -10,16 +10,24 @@
     <version>0.1.0-SNAPSHOT</version>
     <relativePath>../../vertx-parent</relativePath>
   </parent>
-  <artifactId>service-discovery-vertx-consul</artifactId>
+  <artifactId>circuit-breaker-vertx</artifactId>
   <packaging>pom</packaging>
 
   <modules>
-    <module>service</module>
-    <module>client</module>
-    <module>consul-backend</module>
+    <module>service-A</module>
   </modules>
-
+  
   <dependencies>
+    <dependency>
+      <groupId>io.examples</groupId>
+      <artifactId>common</artifactId>
+      <version>0.1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>io.examples</groupId>
+      <artifactId>vertx-common</artifactId>
+      <version>0.1.0-SNAPSHOT</version>
+    </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-core</artifactId>
@@ -27,6 +35,10 @@
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web-client</artifactId>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -38,12 +50,11 @@
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
-      <artifactId>vertx-consul-client</artifactId>
+      <artifactId>vertx-circuit-breaker</artifactId>
     </dependency>
-
     <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-hazelcast</artifactId>
     </dependency>
   </dependencies>
 </project>

@@ -18,6 +18,7 @@
     <module>rest</module>
     <module>service-discovery</module>
     <module>api-gateway</module>
+    <module>circuit-breaker</module>
   </modules>
 
 </project>
