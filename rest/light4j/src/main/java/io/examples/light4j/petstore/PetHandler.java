@@ -50,8 +50,7 @@ public class PetHandler {
         logger.debug("Received all pets request");
         productRepository.getProducts()
                 .toList()
-                .subscribe(products -> this.buildResponse(exchange, products))
-                .dispose();
+                .subscribe(products -> this.buildResponse(exchange, products));
     }
 
     /**
@@ -65,8 +64,7 @@ public class PetHandler {
         productRepository.getProductById(id)
                 .subscribe(product -> this.buildResponse(exchange, product),
                         t -> this.exceptionResponse(exchange, t),
-                        () -> this.notFoundResponse(exchange))
-                .dispose();
+                        () -> this.notFoundResponse(exchange));
     }
 
     /**
@@ -79,8 +77,7 @@ public class PetHandler {
             logger.debug("Received find pet by Category request, category:{}", category);
             productRepository.getProductsByCategory(category)
                     .toList()
-                    .subscribe(products -> this.buildResponse(exchange, products))
-                    .dispose();
+                    .subscribe(products -> this.buildResponse(exchange, products));
         });
 
     }
@@ -95,8 +92,7 @@ public class PetHandler {
         this.rxGetBodyAsString(exchange)
                 .map(body -> this.jsonToObject(body, Product.class))
                 .flatMap(productRepository::addProduct)
-                .subscribe(product -> this.buildResponse(exchange, product), t -> this.exceptionResponse(exchange, t))
-                .dispose();
+                .subscribe(product -> this.buildResponse(exchange, product), t -> this.exceptionResponse(exchange, t));
     }
 
     public void update(HttpServerExchange exchange) {
@@ -109,8 +105,7 @@ public class PetHandler {
                 .flatMap(product -> productRepository.updateProduct(product).toMaybe())
                 .subscribe(b -> this.buildResponse(exchange, ApiResponses.MSG_UPDATE_SUCCESS),
                         t -> this.exceptionResponse(exchange, t),
-                        () -> this.notFoundResponse(exchange))
-                .dispose();
+                        () -> this.notFoundResponse(exchange));
     }
 
     public void delete(HttpServerExchange exchange) {
@@ -120,8 +115,7 @@ public class PetHandler {
                 .flatMap(p -> productRepository.deleteProduct(p.getId()).toMaybe())
                 .subscribe(b -> this.buildResponse(exchange, ApiResponses.MSG_DELETE_SUCCESS),
                         t -> this.exceptionResponse(exchange, t),
-                        () -> this.notFoundResponse(exchange))
-                .dispose();
+                        () -> this.notFoundResponse(exchange));
     }
 
     private <T> void buildResponse(HttpServerExchange exchange, T body) {

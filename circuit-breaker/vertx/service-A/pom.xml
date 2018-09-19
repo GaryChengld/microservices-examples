@@ -13,7 +13,7 @@
   <artifactId>circuit-breaker-vertx-service-A</artifactId>
 
   <properties>
-    <main.class>io.examples.apigateway.vertx.gateway.ApiGatewayVerticle</main.class>
+    <main.class>io.examples.circuitbreaker.vertx.service.ServiceAVerticle</main.class>
   </properties>
 
   <build>

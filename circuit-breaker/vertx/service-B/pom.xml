@@ -6,14 +6,14 @@
 
   <parent>
     <groupId>io.examples</groupId>
-    <artifactId>api-gateway-vertx</artifactId>
+    <artifactId>circuit-breaker-vertx</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>
-  <artifactId>api-gateway-vertx-pet-service</artifactId>
+  <artifactId>circuit-breaker-vertx-service-B</artifactId>
 
   <properties>
-    <main.class>io.examples.apigateway.vertx.service.PetServiceVerticle</main.class>
+    <main.class>io.examples.circuitbreaker.vertx.service.ServiceBVerticle</main.class>
   </properties>
 
   <build>

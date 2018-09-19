@@ -1,5 +1,5 @@
 {
-  "service": "review",
+  "service": "ServiceC",
   "host": "localhost",
   "port": 9082
 }

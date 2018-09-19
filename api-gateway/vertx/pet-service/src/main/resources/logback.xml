@@ -28,7 +28,7 @@
   <logger name="io.netty" level="warn"/>
   <logger name="io.vertx" level="info"/>
   <logger name="com.hazelcast" level="info"/>
-  <logger name="vertx.examples" level="debug"/>
+  <logger name="io.examples" level="debug"/>
 
   <root level="debug">
     <appender-ref ref="STDOUT"/>

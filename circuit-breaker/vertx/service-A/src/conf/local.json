@@ -1,5 +1,5 @@
 {
-  "service": "service-A",
+  "service": "ServiceA",
   "host": "localhost",
   "port": 9080
 }
