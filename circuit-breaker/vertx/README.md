@@ -40,5 +40,5 @@ Once all microservices lunched, open a browser to `http://localhost:9080/service
 ```
 in Browser.
 
-When shutting down microservice B or C, it does not reply to the request anymore. The circuit breaker intercepts the error
+When shutting down microservice B or C, it does not reply to the request anymore. The circuit breaker intercepts the error (after failed 5 times)
 and execute a fallback. If you restarts it, the output should be back to _normal_. This is because the circuit breaker tries periodically to reset its state and check whether or not things are back to _normal_.
