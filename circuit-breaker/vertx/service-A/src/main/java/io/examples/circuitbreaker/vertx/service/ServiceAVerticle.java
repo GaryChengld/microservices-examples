@@ -87,7 +87,7 @@ public class ServiceAVerticle extends AbstractVerticle {
 
     @Override
     public void stop(Future<Void> stopFuture) {
-        this.circuitBreakerMap.values().forEach(circuitBreaker -> circuitBreaker.close());
+        this.circuitBreakerMap.values().forEach(CircuitBreaker::close);
         this.circuitBreakerMap.clear();
         if (null != this.publishedRecord) {
             discovery.rxUnpublish(this.publishedRecord.getRegistration())
@@ -118,7 +118,7 @@ public class ServiceAVerticle extends AbstractVerticle {
         result.put("ServiceA result", "Welcome to Service A");
         Single.merge(this.callServiceB(), this.callServiceC())
                 .doAfterTerminate(() -> context.response().putHeader("content-type", "application/json").end(result.encodePrettily()))
-                .subscribe(jsonObject -> result.mergeIn(jsonObject));
+                .subscribe(result::mergeIn);
     }
 
     private Single<JsonObject> callServiceB() {
