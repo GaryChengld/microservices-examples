@@ -133,7 +133,7 @@ public class ServiceAVerticle extends AbstractVerticle {
         logger.debug("Call Service with fallback, service:{}, uri:{}", service, uri);
         return this.getCircuitBreaker(service)
                 .rxExecuteCommandWithFallback(future -> this.callService(service, uri).subscribe(future::complete, future::fail),
-                        fallback::apply);
+                        fallback);
     }
 
     private JsonObject fallbackServiceB(Throwable throwable) {
