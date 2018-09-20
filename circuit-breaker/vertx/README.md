@@ -1,4 +1,4 @@
-# Vert.x Circuit breaker example
+# Vert.x Circuit Breaker example
 
 This example demonstrates how to build aggregation microservice pattern with vert.x which uses vert.x discovery and circuit breaker.
 
