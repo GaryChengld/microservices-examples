@@ -1,5 +1,6 @@
 spring:
-  application.name: zuul-gateway
+  application:
+    name: zuul-gateway
 
 server:
   port: 9080
