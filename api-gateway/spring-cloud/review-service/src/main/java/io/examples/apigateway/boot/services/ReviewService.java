@@ -1,4 +1,4 @@
-package io.examples.apigateway.boot.service;
+package io.examples.apigateway.boot.services;
 
 import io.examples.boot.handler.ReviewHandler;
 import io.examples.review.repository.FluxReviewRepository;
