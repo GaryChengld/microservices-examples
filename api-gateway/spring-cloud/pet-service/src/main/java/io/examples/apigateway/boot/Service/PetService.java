@@ -1,4 +1,4 @@
-package io.examples.apigateway.boot.Service;
+package io.examples.apigateway.boot.service;
 
 import io.examples.boot.handler.PetHandler;
 import io.examples.store.repository.FluxProductRepository;
