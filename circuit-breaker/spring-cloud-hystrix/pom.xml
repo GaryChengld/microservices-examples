@@ -15,6 +15,9 @@
 
   <modules>
     <module>eureka-server</module>
+    <module>service-A</module>
+    <module>service-B</module>
+    <module>service-C</module>
   </modules>
 
   <dependencyManagement>
