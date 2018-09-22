@@ -22,7 +22,7 @@ hystrix:
             strategy: THREAD
             timeoutInMilliseconds: 30000
       circuitBreaker:
-        requestVolumeThreshold: 2
+        requestVolumeThreshold: 5
         sleepWindowInMilliseconds: 30000
 
 
