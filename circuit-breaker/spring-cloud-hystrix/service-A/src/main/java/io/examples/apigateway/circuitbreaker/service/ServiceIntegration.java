@@ -17,7 +17,7 @@ public class ServiceIntegration {
     @Autowired
     private RestTemplate restTemplate;
 
-    @HystrixCommand(fallbackMethod = "fallbackServiceB")
+    @HystrixCommand(fallbackMethod = "fallbackServiceB", commandKey = "default")
     public ResultB callServiceB() {
         String url = "http://ServiceB/serviceB";
         return restTemplate.getForObject(url, ResultB.class);
@@ -29,7 +29,7 @@ public class ServiceIntegration {
         return resultB;
     }
 
-    @HystrixCommand(fallbackMethod = "fallbackServiceC")
+    @HystrixCommand(fallbackMethod = "fallbackServiceC", commandKey = "default")
     public ResultC callServiceC() {
         String url = "http://ServiceC/serviceC";
         return restTemplate.getForObject(url, ResultC.class);
