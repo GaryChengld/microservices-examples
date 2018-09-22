@@ -2,6 +2,7 @@ package io.examples.apigateway.circuitbreaker.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.examples.apigateway.circuitbreaker.domain.ResultB;
+import io.examples.apigateway.circuitbreaker.domain.ResultC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -25,6 +26,18 @@ public class ServiceIntegration {
     public ResultB fallbackServiceB(Throwable hystrixCommand) {
         ResultB resultB = new ResultB();
         resultB.setResult(hystrixCommand.getLocalizedMessage());
-        return new ResultB();
+        return resultB;
+    }
+
+    @HystrixCommand(fallbackMethod = "fallbackServiceC")
+    public ResultC callServiceC() {
+        String url = "http://ServiceC/serviceC";
+        return restTemplate.getForObject(url, ResultC.class);
+    }
+
+    public ResultC fallbackServiceC(Throwable hystrixCommand) {
+        ResultC resultC = new ResultC();
+        resultC.setResult(hystrixCommand.getLocalizedMessage());
+        return resultC;
     }
 }

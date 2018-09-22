@@ -7,9 +7,22 @@ eureka:
       defaultZone: http://127.0.0.1:8761/eureka/
 
 hystrix:
+  threadpool:
+    # Maximum number of concurrent requests when using thread pools (Default: 10)
+    coreSize: 100
+    # Maximum LinkedBlockingQueue size - -1 for using SynchronousQueue (Default: -1)
+    maxQueueSize: -1
+    # Queue size rejection threshold (Default: 5)
+    queueSizeRejectionThreshold: 5
   command:
     default:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 60000
+            strategy: THREAD
+            timeoutInMilliseconds: 30000
+      circuitBreaker:
+        requestVolumeThreshold: 5
+        sleepWindowInMilliseconds: 30000
+
+

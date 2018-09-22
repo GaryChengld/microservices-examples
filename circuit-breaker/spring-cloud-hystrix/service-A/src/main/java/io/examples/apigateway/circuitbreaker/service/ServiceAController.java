@@ -22,6 +22,8 @@ public class ServiceAController {
         log.debug("Received service A request");
         Results results = new Results();
         results.setResultA("Welcome to Service A");
+        results.setResultB(serviceIntegration.callServiceB().getResult());
+        results.setResultC(serviceIntegration.callServiceC().getResult());
         return results;
     }
 }
