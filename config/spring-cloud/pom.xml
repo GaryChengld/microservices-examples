@@ -13,6 +13,10 @@
   <artifactId>config-boot</artifactId>
   <packaging>pom</packaging>
 
+  <modules>
+    <module>config-server</module>
+    <module>eureka-server</module>
+  </modules>
   <dependencyManagement>
     <dependencies>
       <dependency>
