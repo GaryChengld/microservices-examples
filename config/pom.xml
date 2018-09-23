@@ -5,20 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.examples</groupId>
-  <artifactId>microservices</artifactId>
+  <artifactId>config</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
-    <module>common</module>
-    <module>vertx-parent</module>
-    <module>vertx-common</module>
-    <module>spring-boot-parent</module>
-    <module>spring-boot-common</module>
-    <module>rest</module>
-    <module>service-discovery</module>
-    <module>api-gateway</module>
-    <module>circuit-breaker</module>
-    <module>config</module>
+    <module>spring-cloud</module>
   </modules>
 </project>

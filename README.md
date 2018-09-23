@@ -12,3 +12,4 @@ The microservice architecture enables the continuous delivery/deployment of larg
 * [Service Discovery](service-discovery/)
 * [Api Gateway](api-gateway/)
 * [Circuit Breaker](circuit-breaker/)
+* [Externalized configuration](config/) 
