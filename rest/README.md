@@ -1,5 +1,18 @@
 ## Restful service examples 
 
+All examples implement same restful service as below
+
+|method|url|desc|
+|:---|:---|:---|
+|GET|/v1/pet|Get all pets|
+|GET|/v1/pet/{id}|Find pet by id|
+|GET|/v1/pet/findByCategory/{category}|Find pets by category|
+|POST|/v1/pet|Add a new pet|
+|PUT|/v1/pet/{id}|Update a pet|
+|Delete|/v1/pet/{id}|Delete a pet|
+
+**Table of Contents**
+
 - [vertx](vertx/) -- Reactive restful service on vert.x
 - [vertx-https](vertx-https/) -- Https reactive restful service on vert.x
 - [vertx-resteasy](vertx-resteasy/) -- JAX-RS style async restful service on Vert.x and Resteasy
