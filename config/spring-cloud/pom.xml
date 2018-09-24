@@ -16,7 +16,9 @@
   <modules>
     <module>config-server-git</module>
     <module>eureka-server</module>
+    <module>pet-service</module>
   </modules>
+
   <dependencyManagement>
     <dependencies>
       <dependency>

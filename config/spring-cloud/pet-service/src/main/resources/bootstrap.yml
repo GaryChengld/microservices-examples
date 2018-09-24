@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: pet
+
+cloud:
+  config:
+    discovery:
+      serviceId: config-server
+      enabled: false
+    uri: http://localhost:${config.port:9999}
