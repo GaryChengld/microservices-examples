@@ -10,7 +10,7 @@
     <relativePath>../</relativePath>
   </parent>
 
-  <artifactId>config-boot-config-server</artifactId>
+  <artifactId>config-boot-config-server-git</artifactId>
   <packaging>jar</packaging>
 
   <dependencies>

@@ -14,7 +14,7 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>config-server</module>
+    <module>config-server-git</module>
     <module>eureka-server</module>
   </modules>
   <dependencyManagement>
