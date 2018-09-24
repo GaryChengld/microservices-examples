@@ -1,12 +1,12 @@
 server:
-  port: 9999
+  port: 8888
 
 spring:
   application:
     name: config-server
   cloud:
     config:
-      server.git.uri: https://github.com/GaryChengld/microservices-examples.git
+      server.git.uri: https://github.com/GaryChengld/microservices-examples-config-repo.git
 
 eureka:
   client:
