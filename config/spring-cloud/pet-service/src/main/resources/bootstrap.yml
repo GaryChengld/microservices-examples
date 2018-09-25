@@ -3,12 +3,6 @@ spring:
     name: pet
   cloud:
     config:
-      failFast: true
-      retry:
-        initialInterval: 3000
-        multiplier: 1.3
-        maxInterval: 5000
-        maxAttempts: 20
       discovery:
         serviceId: config-server
         enabled: false

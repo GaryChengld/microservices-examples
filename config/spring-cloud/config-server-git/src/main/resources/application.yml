@@ -6,7 +6,9 @@ spring:
     name: config-server
   cloud:
     config:
-      server.git.uri: https://github.com/GaryChengld/microservices-examples-config-repo.git
+      server:
+        git:
+          uri: https://github.com/GaryChengld/microservices-examples-config-repo.git
 
 eureka:
   client:
