@@ -13,7 +13,7 @@
   <artifactId>circuit-breaker-vertx-service-C</artifactId>
 
   <properties>
-    <main.class>io.examples.circuitbreaker.vertx.service.ServiceCVerticle</main.class>
+    <main.verticle>io.examples.circuitbreaker.vertx.service.ServiceCVerticle</main.verticle>
   </properties>
 
   <build>

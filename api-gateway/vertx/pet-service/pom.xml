@@ -13,7 +13,7 @@
   <artifactId>api-gateway-vertx-pet-service</artifactId>
 
   <properties>
-    <main.class>io.examples.apigateway.vertx.service.PetServiceVerticle</main.class>
+    <main.verticle>io.examples.apigateway.vertx.service.PetServiceVerticle</main.verticle>
   </properties>
 
   <build>

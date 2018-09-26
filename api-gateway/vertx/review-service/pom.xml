@@ -12,7 +12,7 @@
   <artifactId>api-gateway-vertx-review-service</artifactId>
 
   <properties>
-    <main.class>io.examples.apigateway.vertx.service.ReviewServiceVerticle</main.class>
+    <main.verticle>io.examples.apigateway.vertx.service.ReviewServiceVerticle</main.verticle>
   </properties>
 
   <build>

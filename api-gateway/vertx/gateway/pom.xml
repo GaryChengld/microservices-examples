@@ -12,7 +12,7 @@
   <artifactId>api-gateway-vertx-gateway</artifactId>
 
   <properties>
-    <main.class>io.examples.apigateway.vertx.gateway.ApiGatewayVerticle</main.class>
+    <main.verticle>io.examples.apigateway.vertx.gateway.ApiGatewayVerticle</main.verticle>
   </properties>
 
   <build>

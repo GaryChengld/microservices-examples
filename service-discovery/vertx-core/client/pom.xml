@@ -12,7 +12,7 @@
   <artifactId>discovery-vertx-core-client</artifactId>
 
   <properties>
-    <main.class>vertx.examples.discovery.client.Client</main.class>
+    <main.verticle>vertx.examples.discovery.client.Client</main.verticle>
   </properties>
 
   <build>

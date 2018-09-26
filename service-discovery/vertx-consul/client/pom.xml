@@ -13,9 +13,6 @@
   <artifactId>vertx-consul-discovery-client</artifactId>
 
   <properties>
-    <!--
-    <main.class>vertx.examples.discovery.consul.client.Client</main.class>
-    -->
     <main.verticle>vertx.examples.discovery.consul.client.ClientVerticle</main.verticle>
   </properties>
 
