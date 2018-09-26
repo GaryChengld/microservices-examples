@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 public class MainVerticle extends AbstractVerticle {
     private static final Logger logger = LoggerFactory.getLogger(PetServiceVerticle.class);
 
+    // Convenience method so you can run it in IDE
     public static void main(String[] args) {
         Vertx.vertx().rxDeployVerticle(MainVerticle.class.getName())
                 .subscribe(id -> logger.debug("MainVerticle deployed successfully with deployment ID {}", id),
@@ -31,8 +32,7 @@ public class MainVerticle extends AbstractVerticle {
                 .setConfig(new JsonObject()
                         .put("url", "https://github.com/GaryChengld/microservices-examples-config-repo.git")
                         .put("path", "local")
-                        .put("filesets",
-                                new JsonArray().add(new JsonObject().put("pattern", "vertx-pet.json"))));
+                        .put("filesets", new JsonArray().add(new JsonObject().put("pattern", "vertx-pet.json"))));
         ConfigRetriever retriever = ConfigRetriever.create(vertx, new ConfigRetrieverOptions().addStore(git));
         retriever.rxGetConfig().flatMap(config -> vertx.rxDeployVerticle(PetServiceVerticle.class.getName(), new DeploymentOptions().setConfig(config)))
                 .subscribe(id -> startFuture.complete(),
