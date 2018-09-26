@@ -11,7 +11,7 @@
   </parent>
 
   <properties>
-    <main.verticle>vertx.examples.discovery.consul.ServiceVerticle</main.verticle>
+    <main.verticle>io.examples.discovery.vertx.consul.ServiceVerticle</main.verticle>
   </properties>
 
   <artifactId>vertx-consul-discovery-service</artifactId>

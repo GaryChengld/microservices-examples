@@ -12,7 +12,7 @@
   <artifactId>discovery-vertx-core-service</artifactId>
 
   <properties>
-    <main.verticle>vertx.examples.discovery.ServiceVerticle</main.verticle>
+    <main.verticle>io.examples.discovery.vertx.ServiceVerticle</main.verticle>
   </properties>
 
   <build>

@@ -11,7 +11,7 @@
   </parent>
 
   <properties>
-    <main.verticle>examples.discovery.vertx.zk.ServiceVerticle</main.verticle>
+    <main.verticle>io.examples.discovery.vertx.zk.ServiceVerticle</main.verticle>
   </properties>
 
   <artifactId>vertx-zk-discovery-service</artifactId>
