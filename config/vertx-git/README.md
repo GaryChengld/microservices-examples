@@ -1,4 +1,4 @@
-# Externalized configuration by Vert.x using the Git Configuration Store
+# Vert.x using the Git to store externalized configuration
 
 This example externalized configuration on GitHub Repository https://github.com/GaryChengld/microservices-examples-config-repo.git
 
