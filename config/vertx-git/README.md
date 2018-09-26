@@ -16,7 +16,7 @@ Build with maven
 Run service
 
 ```
-java -jar target\config-boot-eureka-server-0.1.0-SNAPSHOT.jar
+java -jar target\config-vertx-git-fat.jar
 
 ```
 
