@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
  * @author Gary Cheng
  */
 public class MainVerticle extends AbstractVerticle {
-    private static final Logger logger = LoggerFactory.getLogger(PetServiceVerticle.class);
+    private static final Logger logger = LoggerFactory.getLogger(MainVerticle.class);
 
     // Convenience method so you can run it in IDE
     public static void main(String[] args) {
