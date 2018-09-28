@@ -1,0 +1,39 @@
+# Extending from the default server configuration
+server:
+  applicationConnectors:
+    - type: http
+      port: 9080
+      bindHost: 127.0.0.1 # only bind to loopback
+      inheritChannel: false
+      headerCacheSize: 512 bytes
+      outputBufferSize: 32KiB
+      maxRequestHeaderSize: 8KiB
+      maxResponseHeaderSize: 8KiB
+      inputBufferSize: 8KiB
+      idleTimeout: 30 seconds
+      minBufferPoolSize: 64 bytes
+      bufferPoolIncrement: 1KiB
+      maxBufferPoolSize: 64KiB
+      acceptorThreads: 1
+      selectorThreads: 2
+      acceptQueueSize: 1024
+      reuseAddress: true
+      soLingerTime: 345s
+      useServerHeader: false
+      useDateHeader: false
+      useForwardedHeaders: false
+  requestLog:
+    appenders: []
+
+# Logging settings.
+logging:
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: INFO
+  # Logger-specific levels.
+  loggers:
+    io.examples: DEBUG
+  appenders:
+    type: console
+    threshold: INFO
+    logFormat: "%-6level [%d{HH:mm:ss.SSS}] [%t] %logger{5} - %X{code} %msg %n"
+    timeZone: UTC
