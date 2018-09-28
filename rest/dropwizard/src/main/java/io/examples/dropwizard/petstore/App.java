@@ -2,6 +2,7 @@ package io.examples.dropwizard.petstore;
 
 import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
+import io.examples.store.repository.ProductRepository;
 
 /**
  * Main application class
@@ -15,6 +16,6 @@ public class App extends Application<AppConfiguration> {
 
     @Override
     public void run(AppConfiguration appConfiguration, Environment environment) throws Exception {
-
+        environment.jersey().register(new PetResource(ProductRepository.instance()));
     }
 }
