@@ -31,9 +31,8 @@ logging:
   level: INFO
   # Logger-specific levels.
   loggers:
-    io.examples: DEBUG
+    "io.examples": DEBUG
   appenders:
-    type: console
-    threshold: INFO
-    logFormat: "%-6level [%d{HH:mm:ss.SSS}] [%t] %logger{5} - %X{code} %msg %n"
-    timeZone: UTC
+    - type: console
+      logFormat: "%-6level [%d{HH:mm:ss.SSS}] [%t] %logger{5} - %X{code} %msg %n"
+      timeZone: UTC

@@ -38,6 +38,7 @@ public class PetResource {
 
     @GET
     public List<Product> all() {
+        log.debug("Received getAll request");
         return productRepository.getProducts();
     }
 
