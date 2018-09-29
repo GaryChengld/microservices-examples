@@ -4,3 +4,4 @@ Externalized configuration is a pattern that allows an application to run in mul
 
  - [Spring Cloud](spring-cloud) -- Externalized configuration by spring config server
  - [Vert.x Git](vertx-git) -- Vert.x Configuration Retriever to retrieve configuration from a Git repository.
+ - [Vert.x Http](vertx-http) -- Vert.x retrieves the configuration from a HTTP location. 
