@@ -35,5 +35,5 @@ mvn clean package
 
 #### Start
 ```
-docker run -p 4443:4443 examples/rest/vertx-https
+docker run -p 9080:9080 examples/rest/vertx-https
 ```
