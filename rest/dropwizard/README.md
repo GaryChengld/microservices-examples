@@ -1,6 +1,6 @@
 ## Example of non-blocking restful service build on DropWizard
 
-**[DropWizard](https://www.dropwizard.io) Dropwizard is a Java framework for developing ops-friendly, high-performance, RESTful web services.**
+**[Dropwizard](https://www.dropwizard.io) is a Java framework for developing ops-friendly, high-performance, RESTful web services.**
 
 Build
 ```
