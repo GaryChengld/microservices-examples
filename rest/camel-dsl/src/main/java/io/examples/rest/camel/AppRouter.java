@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 public class AppRouter extends RouteBuilder {
     @Override
     public void configure() throws Exception {
-        restConfiguration().component("netty").host("localhost").port("9080").bindingMode(RestBindingMode.json);
+        restConfiguration().component("restlet").host("localhost").port("9080").bindingMode(RestBindingMode.json);
+        rest("/api/names").get().route().setBody(constant("Blake, John, Rob"));
     }
 }
