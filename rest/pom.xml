@@ -20,6 +20,7 @@
     <module>spring-boot-webflux-3</module>
     <module>light4j</module>
     <module>dropwizard</module>
+    <module>camel-dsl</module>
   </modules>
 
 </project>
