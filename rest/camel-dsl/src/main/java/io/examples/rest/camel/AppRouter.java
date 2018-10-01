@@ -14,6 +14,9 @@ public class AppRouter extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         restConfiguration().component("restlet").host("localhost").port("9080").bindingMode(RestBindingMode.json);
-        rest("/api/names").get().route().setBody(constant("Blake, John, Rob"));
+        rest("/v1/pet")
+                .consumes("application/json").produces("application/json")
+                .get().to("bean:petService?method=all")
+                .get("/{id}").to("bean:petService?method=byId(${header.id})");
     }
 }
