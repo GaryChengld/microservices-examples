@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway-boot-eureka-server" />
+        <module name="api-gateway-boot-pet-service" />
+        <module name="api-gateway-boot-revoew-service" />
+        <module name="api-gateway-boot-zuul-gateway" />
+        <module name="api-gateway-vertx-gateway-service" />
+        <module name="api-gateway-vertx-pet-service" />
+        <module name="api-gateway-vertx-review-service" />
+        <module name="boot-discovery-eureka-client" />
+        <module name="boot-discovery-eureka-server" />
+        <module name="boot-discovery-eureka-service" />
+        <module name="circuit-breaker-boot-eureka-server" />
+        <module name="circuit-breaker-boot-service-A" />
+        <module name="circuit-breaker-boot-service-B" />
+        <module name="circuit-breaker-boot-service-C" />
+        <module name="circuit-breaker-vertx-service-A" />
+        <module name="circuit-breaker-vertx-service-B" />
+        <module name="circuit-breaker-vertx-service-C" />
+        <module name="common" />
+        <module name="config-boot-config-server-git" />
+        <module name="config-boot-eureka-server" />
+        <module name="config-boot-pet-service" />
+        <module name="config-vertx-git" />
+        <module name="consul-backend" />
+        <module name="discovery-vertx-core-client" />
+        <module name="discovery-vertx-core-service" />
+        <module name="rest-boot" />
+        <module name="rest-boot-jersey" />
+        <module name="rest-boot-webflux-1" />
+        <module name="rest-boot-webflux-2" />
+        <module name="rest-boot-webflux-3" />
+        <module name="rest-camel-dsl" />
+        <module name="rest-dropwizard" />
+        <module name="rest-light4j" />
+        <module name="rest-vertx" />
+        <module name="rest-vertx-https" />
+        <module name="resteasy-vertx" />
+        <module name="spring-boot-common" />
+        <module name="vertx-common" />
+        <module name="vertx-consul-discovery-client" />
+        <module name="vertx-consul-discovery-service" />
+        <module name="vertx-zk-discovery-client" />
+        <module name="vertx-zk-discovery-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="config-vertx-http" target="1.8" />
+      <module name="vertx-rest-common" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

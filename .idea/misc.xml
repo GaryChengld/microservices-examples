@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/simple/target/maven-archiver/pom.properties" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/consul/pom.xml" />
+        <option value="$PROJECT_DIR$/vertx-consul/pom.xml" />
+        <option value="$PROJECT_DIR$/vertx-core/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-eureka/client/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/spring-boot-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/spring-boot-eureka/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/spring-boot-eureka/service/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/spring-boot-eureka/client/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/vertx-consul/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/vertx-consul/consul-backend/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/vertx-consul/service/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/vertx-consul/client/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/vertx-core/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/vertx-core/service/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/vertx-core/client/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/vertx-zk/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/vertx-zk/service/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/vertx-zk/client/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/../vertx-examples-master/amqp-bridge-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/camel-bridge-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/circuit-breaker-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/consul-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/core-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/docker-examples/vertx-docker-example-fabric8/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/docker-examples/vertx-docker-example/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/docker-examples/vertx-docker-java-fatjar/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/docker-examples/vertx-docker-java/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/examples-utils/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/fatjar-examples/http2-fatjar/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/fatjar-examples/ruby-fatjar/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/grpc-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/heroku-example/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/ignite-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/jca-examples/ear/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/jca-examples/ejb/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/jca-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/jca-examples/war/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/jdbc-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/junit5-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/kafka-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/kotlin-examples/coroutines/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/mail-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/maven-service-factory-examples/maven-service-factory-api/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/maven-service-factory-examples/maven-service-factory-verticle/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/maven-service-factory-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/maven-simplest/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/maven-verticles/maven-verticle-groovy-compiled/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/maven-verticles/maven-verticle-groovy/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/maven-verticles/maven-verticle-js/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/maven-verticles/maven-verticle-rb/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/maven-verticles/maven-verticle/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/maven-verticles/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/metrics-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/mongo-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/mqtt-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/openshift3-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/openshift3-examples/vertx-kubernetes-applications/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/openshift3-examples/vertx-kubernetes-applications/vertx-kubernetes-client-application/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/openshift3-examples/vertx-kubernetes-applications/vertx-kubernetes-greeting-application/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/openshift3-examples/vertx-openshift-applications/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/openshift3-examples/vertx-openshift-applications/vertx-clustered-application/clustered-application-http/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/openshift3-examples/vertx-openshift-applications/vertx-clustered-application/clustered-application-service/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/openshift3-examples/vertx-openshift-applications/vertx-greeting-application/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/openshift3-examples/vertx-openshift-applications/vertx-id-generator/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/osgi-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/redis-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/resteasy-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/rxjava-1-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/rxjava-2-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/service-discovery-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/service-proxy-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/service-proxy-examples/service-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/service-proxy-examples/service-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/service-proxy-examples/sockjs-proxies/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/shell-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/spring-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/spring-examples/spring-example/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/spring-examples/spring-verticle-factory/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/spring-examples/springboot-clustering/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/spring-examples/springboot-clustering/springboot-clustering-hazelcast/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/spring-examples/springboot-example/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/sync-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/unit-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/web-client-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../vertx-examples-master/web-examples/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
