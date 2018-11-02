@@ -1,0 +1,8 @@
+#Application configuration
+server:
+  port: 9080
+
+spring:
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9300
