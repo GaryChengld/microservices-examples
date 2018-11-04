@@ -14,3 +14,4 @@ The microservice architecture enables the continuous delivery/deployment of larg
 * [Circuit Breaker](circuit-breaker/)
 * [Externalized configuration](config/) 
 * [GraphQL](graphql/)
+* [gRPC](grpc)
