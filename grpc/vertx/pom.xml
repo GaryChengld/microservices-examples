@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.examples</groupId>
-  <artifactId>grpc</artifactId>
+  <artifactId>grpc-vertx</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
   <properties>
