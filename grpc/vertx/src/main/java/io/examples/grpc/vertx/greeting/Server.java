@@ -1,4 +1,4 @@
-package io.examples.grpc.greeting;
+package io.examples.grpc.vertx.greeting;
 
 
 import io.vertx.core.AbstractVerticle;

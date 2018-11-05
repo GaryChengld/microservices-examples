@@ -1,4 +1,4 @@
-package io.examples.grpc.greeting;
+package io.examples.grpc.vertx.greeting;
 
 import io.grpc.ManagedChannel;
 import io.vertx.core.AbstractVerticle;

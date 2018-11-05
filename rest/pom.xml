@@ -21,6 +21,7 @@
     <module>light4j</module>
     <module>dropwizard</module>
     <module>camel-dsl</module>
+    <module>helidon</module>
   </modules>
 
 </project>
