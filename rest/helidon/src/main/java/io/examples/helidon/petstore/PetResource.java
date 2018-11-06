@@ -1,10 +1,10 @@
 package io.examples.helidon.petstore;
 
-import io.examples.helidon.petstore.common.ApiResponse;
-import io.examples.helidon.petstore.common.ApiResponses;
-import io.examples.helidon.petstore.entity.Product;
-import io.examples.helidon.petstore.repository.ProductRepository;
-import io.examples.helidon.petstore.repository.impl.InMemoryProductRepository;
+
+import io.examples.common.ApiResponse;
+import io.examples.common.ApiResponses;
+import io.examples.store.domain.Product;
+import io.examples.store.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.enterprise.context.RequestScoped;
@@ -30,7 +30,7 @@ public class PetResource {
     private static final Response RESP_PET_NOT_FOUND
             = Response.status(Response.Status.NOT_FOUND).entity(ApiResponses.ERR_PET_NOT_FOUND).build();
 
-    private ProductRepository productRepository = InMemoryProductRepository.getInstance();
+    private ProductRepository productRepository = ProductRepository.instance();
 
     @GET
     public List<Product> all() {
