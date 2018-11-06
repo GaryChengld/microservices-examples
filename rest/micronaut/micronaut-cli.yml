@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: io.examples.micronaut
+---
+testFramework: spock
+sourceLanguage: java

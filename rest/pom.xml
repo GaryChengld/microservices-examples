@@ -22,6 +22,7 @@
     <module>dropwizard</module>
     <module>camel-dsl</module>
     <module>helidon</module>
+    <module>micronaut</module>
   </modules>
 
 </project>

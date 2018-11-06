@@ -24,4 +24,5 @@ All examples implement same restful service as below
 - [light-4j](light4j) -- Non-blocking restful service on light-4j
 - [Dropwizard](dropwizard) -- RESTful example on Dropwizard
 - [Helidon](helidon) -- Microprofile mode example on Helidon
+- [Micronaut](micronaut) -- Micronaut microservice example
 

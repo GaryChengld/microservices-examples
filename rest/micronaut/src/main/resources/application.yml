@@ -1,0 +1,5 @@
+micronaut:
+  server:
+    port: 9080
+  application:
+    name: petstore
