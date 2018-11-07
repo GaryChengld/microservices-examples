@@ -1,10 +1,10 @@
 package io.examples.micronaut.controller;
 
-import io.examples.micronaut.common.ApiResponse;
-import io.examples.micronaut.common.ApiResponses;
-import io.examples.micronaut.entity.Product;
+import io.examples.common.ApiResponse;
+import io.examples.common.ApiResponses;
 import io.examples.micronaut.health.Health;
-import io.examples.micronaut.repository.ProductRepository;
+import io.examples.store.domain.Product;
+import io.examples.store.repository.ProductRepository;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Delete;
@@ -13,7 +13,6 @@ import io.micronaut.http.annotation.Post;
 import io.micronaut.http.annotation.Put;
 import io.reactivex.Single;
 
-import javax.inject.Inject;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,8 +21,7 @@ import java.util.Optional;
  */
 @Controller("/v1/pet")
 public class PetController {
-    @Inject
-    private ProductRepository productRepository;
+    private ProductRepository productRepository = ProductRepository.instance();
 
     @Get("/version")
     public Health version() {
