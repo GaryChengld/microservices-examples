@@ -25,4 +25,5 @@ All examples implement same restful service as below
 - [Dropwizard](dropwizard) -- RESTful example on Dropwizard
 - [Helidon](helidon) -- Microprofile mode example on Helidon
 - [Micronaut](micronaut) -- Micronaut microservice example
+- [spring-boot-hateoas](spring-boot-hateoas) -- HATEOAS style restful service on Spring boot
 
