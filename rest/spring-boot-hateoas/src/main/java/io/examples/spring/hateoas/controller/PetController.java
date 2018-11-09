@@ -1,8 +1,7 @@
 package io.examples.spring.hateoas.controller;
 
-
-import io.examples.spring.hateoas.common.ApiResponse;
-import io.examples.spring.hateoas.common.ApiResponses;
+import io.examples.common.ApiResponse;
+import io.examples.common.ApiResponses;
 import io.examples.spring.hateoas.entity.Product;
 import io.examples.spring.hateoas.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
