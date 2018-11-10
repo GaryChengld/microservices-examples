@@ -1,0 +1,14 @@
+server:
+  port: 9081
+
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health"
