@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>microservices.examples</groupId>
+    <groupId>io.examples</groupId>
     <artifactId>service-discovery-boot-eureka</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <relativePath>../</relativePath>
