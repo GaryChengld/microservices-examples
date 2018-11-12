@@ -3,19 +3,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.example.consul</groupId>
-  <artifactId>service2</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <groupId>io.examples</groupId>
+  <artifactId>service-discovery-boot-consul-service2</artifactId>
   <packaging>jar</packaging>
 
   <name>service2</name>
   <description>Demo project for Spring Boot</description>
 
   <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.0.6.RELEASE</version>
-    <relativePath/> <!-- lookup parent from repository -->
+    <groupId>io.examples</groupId>
+    <artifactId>spring-boot-parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <relativePath>../../../spring-boot-parent</relativePath>
   </parent>
 
   <properties>
@@ -37,12 +36,6 @@
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-consul-discovery</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.0</version>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
