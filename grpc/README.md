@@ -1,3 +1,3 @@
 ## gRPC examples
 
-- [vert.x](vertx/)
+- [vert.x](vertx/) - gRPC on Vert.x 
