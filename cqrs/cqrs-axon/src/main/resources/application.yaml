@@ -1,0 +1,7 @@
+#Application configuration
+server:
+  port: 9080
+
+axon:
+  amqp:
+    exchange: Products
