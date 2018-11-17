@@ -15,3 +15,4 @@ The microservice architecture enables the continuous delivery/deployment of larg
 * [Externalized configuration](config/) 
 * [GraphQL](graphql/)
 * [gRPC](grpc)
+* [CQRS pattern](cqrs)
