@@ -22,5 +22,6 @@
     <module>config</module>
     <module>graphql</module>
     <module>grpc</module>
+    <module>cqrs</module>
   </modules>
 </project>
