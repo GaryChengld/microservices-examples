@@ -1,3 +1,3 @@
 # CQRS Examples
 
-- [CQRS on Axon framework](cqrs-axon)
+- [CQRS pattern on Axon framework](cqrs-axon)
