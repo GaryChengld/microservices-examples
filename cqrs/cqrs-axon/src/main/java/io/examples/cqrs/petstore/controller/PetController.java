@@ -1,8 +1,8 @@
 package io.examples.cqrs.petstore.controller;
 
+import io.examples.common.ApiResponse;
+import io.examples.common.ApiResponses;
 import io.examples.cqrs.petstore.command.CreateProductCommand;
-import io.examples.cqrs.petstore.common.ApiResponse;
-import io.examples.cqrs.petstore.common.ApiResponses;
 import io.examples.cqrs.petstore.queryobject.ProductQueryObject;
 import io.examples.cqrs.petstore.queryobject.ProductQueryObjectRepository;
 import lombok.extern.slf4j.Slf4j;
