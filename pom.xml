@@ -23,5 +23,6 @@
     <module>graphql</module>
     <module>grpc</module>
     <module>cqrs</module>
+    <module>saga</module>
   </modules>
 </project>
