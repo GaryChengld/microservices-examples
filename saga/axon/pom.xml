@@ -10,6 +10,7 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>travel-service</module>
     <module>flight-service</module>
   </modules>
 
