@@ -12,6 +12,7 @@
   <modules>
     <module>travel-service</module>
     <module>flight-service</module>
+    <module>hotel-service</module>
   </modules>
 
 </project>
