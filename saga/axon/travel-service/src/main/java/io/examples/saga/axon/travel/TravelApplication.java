@@ -1,12 +1,12 @@
-package io.examples.saga.axon.travelservice;
+package io.examples.saga.axon.travel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TravelServiceApplication {
+public class TravelApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TravelServiceApplication.class, args);
+		SpringApplication.run(TravelApplication.class, args);
 	}
 }

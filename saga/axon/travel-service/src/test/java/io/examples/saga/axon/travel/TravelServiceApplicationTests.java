@@ -1,4 +1,4 @@
-package io.examples.saga.axon.travelservice;
+package io.examples.saga.axon.travel;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
