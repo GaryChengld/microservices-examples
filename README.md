@@ -12,4 +12,4 @@
 * [GraphQL](graphql/)
 * [gRPC](grpc/)
 * [CQRS pattern](cqrs/)
-* [SAGA pattern](saga/)
+* [Saga pattern](saga/)
