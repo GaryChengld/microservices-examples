@@ -14,3 +14,4 @@
 * [CQRS pattern](cqrs/)
 * [Saga pattern](saga/)
 * Event Sourcing
+* OAuth2
