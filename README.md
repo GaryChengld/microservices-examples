@@ -13,3 +13,4 @@
 * [gRPC](grpc/)
 * [CQRS pattern](cqrs/)
 * [Saga pattern](saga/)
+* Event Sourcing
