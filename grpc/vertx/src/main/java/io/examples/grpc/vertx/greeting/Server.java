@@ -1,6 +1,9 @@
 package io.examples.grpc.vertx.greeting;
 
 
+import io.examples.grpc.greeting.GreeterGrpc;
+import io.examples.grpc.greeting.HelloReply;
+import io.examples.grpc.greeting.HelloRequest;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
