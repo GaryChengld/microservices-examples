@@ -9,7 +9,7 @@ mvn clean package
 #### run locally
 1. Start consul
 ```
-consul agent -bind=127.0.0.1 -data-dir=\tmp\consul -server -ui
+consul agent -data-dir=\tmp\consul -dev
 ```
 2. Start service
 ```
@@ -19,5 +19,5 @@ java -jar service\target\vertx-consul-discovery-service-fat.jar -conf service\sr
 3. Start client
 ```
 cd client
-java -jar service\target\vertx-consul-discovery-service-fat.jar -conf service\src\conf\zookeeper.json
+java -jar service\target\vertx-consul-discovery-service-fat.jar -conf service\src\conf\local.json
 ```

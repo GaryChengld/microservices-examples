@@ -108,6 +108,4 @@ public class PetHandler extends AbstractHandler {
                 .contentType(APPLICATION_JSON)
                 .body(fromObject(ApiResponses.ERR_PET_NOT_FOUND));
     }
-
-
 }

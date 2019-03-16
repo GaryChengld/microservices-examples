@@ -31,7 +31,8 @@ public class PetService {
     }
 
     @Bean
-    public RouterFunction<ServerResponse> petRouterFunction(PetHandler petHandler) {
+    public RouterFunction<ServerResponse> petRouterFunction(
+            PetHandler petHandler) {
         return nest(path("/v1/pet"), petHandler.getRouterFunction());
     }
 
