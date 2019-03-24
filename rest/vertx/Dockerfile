@@ -9,6 +9,7 @@ EXPOSE 9080
 COPY $SERVICE_APP_FILE $SERVICE_HOME/
 COPY src/conf/config.json $SERVICE_HOME/
 
+
 WORKDIR $SERVICE_HOME
 ENTRYPOINT ["sh", "-c"]
 CMD ["java -jar rest-vertx-fat.jar -conf config.json"]
